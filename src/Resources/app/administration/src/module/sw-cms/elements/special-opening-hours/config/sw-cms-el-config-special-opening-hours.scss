@@ -1,0 +1,219 @@
+.sw-cms-el-config-special-opening-hours {
+    // Global fix for dropdown text visibility
+    .sw-select__selection,
+    .sw-select__selection-text,
+    .sw-entity-single-select__selection-text,
+    .sw-select__select-text,
+    .sw-select-option__content,
+    .sw-select__input-base,
+    .sw-select__single-selection {
+        color: #374151 !important;
+        font-size: 14px !important;
+    }
+    .sw-cms-el-config-special-opening-hours__display-settings {
+        margin-bottom: 24px;
+        padding: 16px;
+        background-color: #f9fafb;
+        border-radius: 4px;
+        border: 1px solid #d1d5db;
+
+        &__row {
+            display: flex;
+            gap: 16px;
+            align-items: end;
+        }
+
+        &__column {
+            flex: 1;
+        }
+
+        &__checkbox-label {
+            display: block;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 24px;
+            font-size: 14px;
+            line-height: 20px;
+            height: 20px;
+        }
+
+        &__checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            height: 32px;
+
+            input[type="checkbox"] {
+                margin: 0;
+            }
+        }
+
+        .sw-field {
+            margin-bottom: 0;
+
+            .sw-field__label {
+                font-weight: 500;
+                color: #374151;
+                margin-bottom: 8px;
+                font-size: 14px;
+                line-height: 20px;
+                height: 20px;
+            }
+        }
+
+        .sw-single-select {
+            .sw-field__label {
+                font-weight: 500;
+                color: #374151;
+                margin-bottom: 8px;
+                font-size: 14px;
+                line-height: 20px;
+                height: 20px;
+            }
+
+            .sw-select__selection,
+            .sw-select__selection-text,
+            .sw-entity-single-select__selection-text,
+            .sw-select__select-text,
+            .sw-select-option__content {
+                color: #374151 !important;
+                font-size: 14px !important;
+            }
+
+            .sw-select__input-base {
+                color: #374151 !important;
+            }
+
+            .sw-select__single-selection {
+                color: #374151 !important;
+                font-size: 14px !important;
+            }
+
+            input {
+                color: #374151 !important;
+            }
+
+            // More specific targeting
+            &.sw-single-select {
+                .sw-select__selection {
+                    color: #374151 !important;
+                }
+            }
+        }
+    }
+
+    .sw-cms-el-config-special-opening-hours__schedule-section {
+        h4 {
+            margin-bottom: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #111827;
+        }
+    }
+
+    .sw-cms-el-config-special-opening-hours__day-config {
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        padding: 15px;
+
+        &:hover {
+            border-color: #d1d5db;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    .sw-cms-el-config-special-opening-hours__day-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+
+        h5 {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        &__checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            cursor: pointer;
+
+            input[type="checkbox"] {
+                margin: 0;
+            }
+        }
+    }
+
+    .sw-cms-el-config-special-opening-hours__day-times {
+        &__row {
+            display: flex;
+            gap: 24px;
+            align-items: start;
+        }
+
+        &__column {
+            flex: 1;
+        }
+    }
+
+    .sw-cms-el-config-special-opening-hours__time-period {
+        margin-bottom: 0;
+
+        .sw-cms-el-config-special-opening-hours__period-label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: #6b7280;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .sw-cms-el-config-special-opening-hours__time-inputs {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+
+            input[type="time"] {
+                padding: 6px 8px;
+                font-size: 14px;
+                border: 1px solid #d1d5db;
+                border-radius: 4px;
+                text-align: center;
+            }
+
+            span {
+                font-size: 14px;
+                color: #6b7280;
+                font-weight: 500;
+                flex-shrink: 0;
+                min-width: 20px;
+                text-align: center;
+            }
+
+            .sw-field {
+                flex: 1;
+                margin-bottom: 0;
+
+                .sw-field__input {
+                    font-size: 14px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .sw-cms-el-config-special-opening-hours__day-closed {
+        .sw-cms-el-config-special-opening-hours__closed-label {
+            color: #999;
+            font-style: italic;
+            font-size: 14px;
+        }
+    }
+}

@@ -1,0 +1,94 @@
+{% block sw_cms_element_special_table_config %}
+    <div class="sw-cms-el-config-special-table">
+        
+        <!-- Table Style Settings -->
+        <div class="sw-field--select" style="margin-bottom: 20px;">
+            <label class="sw-field__label">Tabellenstil</label>
+            <select 
+                class="sw-field__select" 
+                v-model="element.config.tableStyle.value"
+                @change="onElementUpdate(element)">
+                <option value="default">Standard</option>
+                <option value="primary">Primary</option>
+                <option value="dark">Dark</option>
+            </select>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <label><input type="checkbox" v-model="element.config.showHeader.value" @change="onElementUpdate(element)"> Kopfzeile anzeigen</label><br>
+            <label><input type="checkbox" v-model="element.config.striped.value" @change="onElementUpdate(element)"> Gestreift</label><br>
+            <label><input type="checkbox" v-model="element.config.bordered.value" @change="onElementUpdate(element)"> Mit Rahmen</label>
+        </div>
+
+        <!-- Table Headers Configuration -->
+        <div class="sw-cms-el-config-special-table__headers-section" style="margin-bottom: 30px;">
+            <h4>Tabellenkopf</h4>
+            
+            <div class="sw-cms-el-config-special-table__header-input" style="display: flex; gap: 10px; margin-bottom: 15px;">
+                <input
+                    type="text"
+                    class="sw-field__input"
+                    v-model="headerInput"
+                    placeholder="Neue Spalte hinzufügen"
+                    @keyup.enter="addHeader"
+                    style="flex: 1; padding: 8px;">
+                <button type="button" class="sw-button sw-button--primary" @click="addHeader">
+                    Hinzufügen
+                </button>
+            </div>
+
+            <div class="sw-cms-el-config-special-table__headers-list">
+                <div 
+                    v-for="(header, index) in headers" 
+                    :key="index" 
+                    class="sw-cms-el-config-special-table__header-item"
+                    style="display: flex; gap: 10px; margin-bottom: 10px;">
+                    <input
+                        type="text"
+                        class="sw-field__input"
+                        v-model="headers[index]"
+                        @input="onElementUpdate(element)"
+                        style="flex: 1; padding: 8px;">
+                    <button type="button" class="sw-button sw-button--danger" @click="removeHeader(index)">
+                        Löschen
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Table Rows Configuration -->
+        <div class="sw-cms-el-config-special-table__rows-section">
+            <h4>Tabellenzeilen</h4>
+            
+            <button type="button" class="sw-button sw-button--ghost" @click="addRow" style="margin-bottom: 15px;">
+                Neue Zeile hinzufügen
+            </button>
+
+            <div class="sw-cms-el-config-special-table__rows-list">
+                <div 
+                    v-for="(row, rowIndex) in rows" 
+                    :key="rowIndex" 
+                    class="sw-cms-el-config-special-table__row-item"
+                    style="border: 1px solid #ddd; padding: 15px; margin-bottom: 15px;">
+                    <div class="sw-cms-el-config-special-table__row-header" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span>Zeile {{ rowIndex + 1 }}</span>
+                        <button type="button" class="sw-button sw-button--danger" @click="removeRow(rowIndex)">
+                            Zeile löschen
+                        </button>
+                    </div>
+                    <div class="sw-cms-el-config-special-table__row-cells" style="display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
+                        <input
+                            v-for="(cell, cellIndex) in row"
+                            :key="cellIndex"
+                            type="text"
+                            class="sw-field__input"
+                            :value="cell"
+                            :placeholder="headers[cellIndex] || `Spalte ${cellIndex + 1}`"
+                            @input="updateCell(rowIndex, cellIndex, $event.target.value)"
+                            style="padding: 8px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

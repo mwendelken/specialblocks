@@ -1,0 +1,78 @@
+{% block sw_cms_element_special_video_config %}
+    <div class="sw-cms-el-config-special-video">
+        <div class="sw-cms-el-config-special-video__config-section">
+            
+            <!-- Video Source -->
+            <div class="sw-field" style="margin-bottom: 20px;">
+                <label class="sw-field__label">Video-Datei (MP4)</label>
+                <input
+                    type="text"
+                    class="sw-field__input"
+                    v-model="element.config.videoSrc.value"
+                    placeholder="Video-URL eingeben oder über Medienverwaltung auswählen"
+                    @input="onElementUpdate(element)"
+                    style="padding: 8px;">
+            </div>
+
+            <!-- Video Settings -->
+            <div class="sw-cms-el-config-special-video__settings" style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 10px;">
+                    <input 
+                        type="checkbox" 
+                        v-model="element.config.autoplay.value"
+                        @change="onElementUpdate(element)">
+                    Automatisch abspielen
+                </label>
+
+                <label style="display: block; margin-bottom: 10px;">
+                    <input 
+                        type="checkbox" 
+                        v-model="element.config.controls.value"
+                        @change="onElementUpdate(element)">
+                    Steuerungsleiste anzeigen
+                </label>
+
+                <label style="display: block; margin-bottom: 10px;">
+                    <input 
+                        type="checkbox" 
+                        v-model="element.config.muted.value"
+                        @change="onElementUpdate(element)">
+                    Stumm schalten
+                </label>
+
+                <label style="display: block; margin-bottom: 10px;">
+                    <input 
+                        type="checkbox" 
+                        v-model="element.config.loop.value"
+                        @change="onElementUpdate(element)">
+                    Endlosschleife
+                </label>
+            </div>
+
+            <!-- Dimensions -->
+            <div class="sw-cms-el-config-special-video__dimensions" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div class="sw-field">
+                    <label class="sw-field__label">Breite</label>
+                    <input
+                        type="text"
+                        class="sw-field__input"
+                        v-model="element.config.width.value"
+                        placeholder="100%"
+                        @input="onElementUpdate(element)"
+                        style="padding: 8px;">
+                </div>
+
+                <div class="sw-field">
+                    <label class="sw-field__label">Höhe</label>
+                    <input
+                        type="text"
+                        class="sw-field__input"
+                        v-model="element.config.height.value"
+                        placeholder="auto"
+                        @input="onElementUpdate(element)"
+                        style="padding: 8px;">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,95 @@
+.sw-cms-el-special-opening-hours {
+    width: 100%;
+    height: 100%;
+    
+    .opening-hours-preview {
+        width: 100%;
+        font-size: 12px;
+        
+        .opening-hours-current-status {
+            padding: 6px 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            
+            &.status-open {
+                background-color: #94a9cc;
+                color: #2b3136;
+                border: 1px solid #94a9cc;
+                
+                .status-indicator {
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    background-color: #005b99;
+                }
+            }
+        }
+
+        .opening-hours-table {
+            .opening-hours-day {
+                .day-name {
+                    font-weight: 600;
+                    width: 40%;
+                    padding: 4px 8px;
+                    font-size: 11px;
+                }
+
+                .day-hours {
+                    padding: 4px 8px;
+                    font-size: 10px;
+                    
+                    .closed {
+                        color: #6c757d;
+                        font-style: italic;
+                    }
+
+                    .hours-list {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 4px;
+                    }
+
+                    .hours-slot {
+                        background-color: #e9ecef;
+                        padding: 2px 4px;
+                        border-radius: 2px;
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+
+        .opening-hours-list-wrapper {
+            .opening-hours-day-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 3px 0;
+                border-bottom: 1px solid #e9ecef;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                .day-name {
+                    font-weight: 600;
+                    min-width: 80px;
+                    font-size: 11px;
+                }
+
+                .day-hours,
+                .closed {
+                    font-size: 10px;
+                }
+
+                .closed {
+                    color: #6c757d;
+                    font-style: italic;
+                }
+            }
+        }
+    }
+}

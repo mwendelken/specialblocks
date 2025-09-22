@@ -1,0 +1,37 @@
+{% block sw_cms_element_preview_special_opening_hours %}
+    <div class="sw-cms-el-preview-special-opening-hours">
+        <svg xmlns="http://www.w3.org/2000/svg" width="120" height="80" viewBox="0 0 120 80">
+            <!-- Clock icon -->
+            <circle cx="15" cy="15" r="10" fill="none" stroke="#6c757d" stroke-width="1.5"/>
+            <line x1="15" y1="15" x2="15" y2="9" stroke="#6c757d" stroke-width="1.5"/>
+            <line x1="15" y1="15" x2="19" y2="15" stroke="#6c757d" stroke-width="1.5"/>
+            
+            <!-- Status indicator -->
+            <circle cx="105" cy="15" r="3" fill="#28a745"/>
+            <text x="80" y="19" font-size="8" fill="#155724" font-weight="bold">GEÖFFNET</text>
+            
+            <!-- Schedule table preview -->
+            <rect x="5" y="30" width="110" height="12" fill="#f8f9fa" stroke="#dee2e6" stroke-width="0.5"/>
+            <rect x="5" y="42" width="110" height="12" fill="white" stroke="#dee2e6" stroke-width="0.5"/>
+            <rect x="5" y="54" width="110" height="12" fill="#f8f9fa" stroke="#dee2e6" stroke-width="0.5"/>
+            <rect x="5" y="66" width="110" height="12" fill="white" stroke="#dee2e6" stroke-width="0.5"/>
+            
+            <!-- Column separator -->
+            <line x1="45" y1="30" x2="45" y2="78" stroke="#dee2e6" stroke-width="0.5"/>
+            
+            <!-- Mock text -->
+            <text x="8" y="38" font-size="6" fill="#495057">Mo</text>
+            <text x="48" y="38" font-size="6" fill="#495057">09:00-12:00, 14:00-18:00</text>
+            
+            <text x="8" y="50" font-size="6" fill="#495057">Di</text>
+            <text x="48" y="50" font-size="6" fill="#495057">09:00-12:00, 14:00-18:00</text>
+            
+            <text x="8" y="62" font-size="6" fill="#495057">Mi</text>
+            <text x="48" y="62" font-size="6" fill="#495057">09:00-12:00, 14:00-18:00</text>
+            
+            <text x="8" y="74" font-size="6" fill="#6c757d" font-style="italic">So</text>
+            <text x="48" y="74" font-size="6" fill="#6c757d" font-style="italic">Geschlossen</text>
+        </svg>
+        <span class="sw-cms-el-preview-special-opening-hours__label">{{ $tc('specialBlocks.openingHours.label') }}</span>
+    </div>
+{% endblock %}

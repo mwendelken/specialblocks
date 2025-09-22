@@ -1,0 +1,51 @@
+<!-- src/Resources/app/administration/src/module/sw-cms/elements/special-opening-hours/component/sw-cms-el-special-opening-hours.html.twig -->
+{% block sw_cms_element_special_opening_hours %}
+    <div class="sw-cms-el-special-opening-hours">
+        <div class="opening-hours-preview">
+            
+            <!-- Current Status (Preview) -->
+            <div v-if="openingHoursData.showCurrentStatus" class="opening-hours-current-status status-open">
+                <span class="status-indicator"></span>
+                <strong>Geöffnet bis 18:00</strong>
+            </div>
+
+            <!-- Schedule Preview -->
+            <div v-if="openingHoursData.displayStyle === 'table'" class="opening-hours-table-wrapper">
+                <table class="table opening-hours-table">
+                    <tbody>
+                        <tr v-for="(day, dayKey) in openingHoursData.schedule" :key="dayKey" class="opening-hours-day">
+                            <td class="day-name">{{ dayLabels[dayKey] }}</td>
+                            <td class="day-hours">
+                                <div v-if="day.closed" class="closed">Geschlossen</div>
+                                <div v-else class="hours-list">
+                                    <span v-if="day.morning.open && day.morning.close" class="hours-slot">
+                                        {{ day.morning.open }} - {{ day.morning.close }}
+                                    </span>
+                                    <span v-if="day.afternoon.open && day.afternoon.close" class="hours-slot">
+                                        {{ day.afternoon.open }} - {{ day.afternoon.close }}
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div v-else class="opening-hours-list-wrapper">
+                <div v-for="(day, dayKey) in openingHoursData.schedule" :key="dayKey" class="opening-hours-day-item">
+                    <strong class="day-name">{{ dayLabels[dayKey] }}:</strong>
+                    <span v-if="day.closed" class="closed">Geschlossen</span>
+                    <span v-else class="day-hours">
+                        <template v-if="day.morning.open && day.morning.close">
+                            {{ day.morning.open }} - {{ day.morning.close }}
+                        </template>
+                        <template v-if="day.afternoon.open && day.afternoon.close">
+                            <template v-if="day.morning.open && day.morning.close">, </template>
+                            {{ day.afternoon.open }} - {{ day.afternoon.close }}
+                        </template>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

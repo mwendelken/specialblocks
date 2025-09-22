@@ -1,0 +1,22 @@
+<!-- src/Resources/app/administration/src/module/sw-cms/elements/special-video/component/sw-cms-el-special-video.html.twig -->
+{% block sw_cms_element_special_video %}
+    <div class="sw-cms-el-special-video">
+        <div v-if="videoElement.src" class="video-preview">
+            <video 
+                :src="videoElement.src"
+                :autoplay="false"
+                :controls="videoElement.controls"
+                :muted="videoElement.muted"
+                :loop="videoElement.loop"
+                :style="videoElement.style"
+                class="special-video-preview">
+            </video>
+        </div>
+        
+        <div v-else class="video-placeholder">
+            <div class="alert alert-info">
+                {{ $tc('specialBlocks.video.noVideoSelected') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

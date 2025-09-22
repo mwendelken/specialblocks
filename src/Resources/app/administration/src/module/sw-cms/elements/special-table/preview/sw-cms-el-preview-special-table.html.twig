@@ -1,0 +1,20 @@
+<!-- src/Resources/app/administration/src/module/sw-cms/elements/special-table/preview/sw-cms-el-preview-special-table.html.twig -->
+{% block sw_cms_element_preview_special_table %}
+    <div class="sw-cms-el-preview-special-table">
+        <svg xmlns="http://www.w3.org/2000/svg" width="120" height="80" viewBox="0 0 120 80">
+            <!-- Table header -->
+            <rect width="120" height="16" fill="#f8f9fa" rx="2" stroke="#dee2e6"/>
+            
+            <!-- Table rows -->
+            <rect width="120" height="16" y="16" fill="white" rx="2" stroke="#dee2e6"/>
+            <rect width="120" height="16" y="32" fill="#f8f9fa" rx="2" stroke="#dee2e6"/>
+            <rect width="120" height="16" y="48" fill="white" rx="2" stroke="#dee2e6"/>
+            <rect width="120" height="16" y="64" fill="#f8f9fa" rx="2" stroke="#dee2e6"/>
+            
+            <!-- Column separators -->
+            <line x1="40" y1="0" x2="40" y2="80" stroke="#dee2e6"/>
+            <line x1="80" y1="0" x2="80" y2="80" stroke="#dee2e6"/>
+        </svg>
+        <span class="sw-cms-el-preview-special-table__label">{{ $tc('specialBlocks.table.label') }}</span>
+    </div>
+{% endblock %}

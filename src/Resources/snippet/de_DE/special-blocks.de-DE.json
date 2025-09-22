@@ -1,0 +1,121 @@
+{
+    "specialBlocks": {
+        "video": {
+            "label": "Special Video",
+            "description": "Zeigt ein MP4-Video an",
+            "browserNotSupported": "Ihr Browser unterstützt das Video-Tag nicht.",
+            "noVideoSelected": "Kein Video ausgewählt. Bitte wählen Sie eine MP4-Datei aus.",
+            "config": {
+                "videoSrc": {
+                    "label": "Video-Datei",
+                    "helpText": "Wählen Sie eine MP4-Video-Datei aus"
+                },
+                "autoplay": {
+                    "label": "Automatisch abspielen",
+                    "helpText": "Video automatisch beim Laden der Seite starten"
+                },
+                "controls": {
+                    "label": "Steuerungsleiste anzeigen",
+                    "helpText": "Play/Pause und andere Bedienelemente anzeigen"
+                },
+                "muted": {
+                    "label": "Stumm schalten",
+                    "helpText": "Video ohne Ton starten"
+                },
+                "loop": {
+                    "label": "Endlosschleife",
+                    "helpText": "Video in Schleife abspielen"
+                },
+                "width": {
+                    "label": "Breite",
+                    "helpText": "CSS-Breite des Videos (z.B. 100%, 500px)"
+                },
+                "height": {
+                    "label": "Höhe",
+                    "helpText": "CSS-Höhe des Videos (z.B. auto, 300px)"
+                }
+            }
+        },
+        "table": {
+            "label": "Special Tabelle",
+            "description": "Zeigt eine konfigurierbare Tabelle an",
+            "noDataAvailable": "Keine Tabellendaten verfügbar. Bitte konfigurieren Sie die Tabelle.",
+            "config": {
+                "tableHeaders": {
+                    "label": "Tabellenkopf",
+                    "helpText": "Spaltenüberschriften der Tabelle"
+                },
+                "tableRows": {
+                    "label": "Tabellenzeilen",
+                    "helpText": "Datenzeilen der Tabelle"
+                },
+                "tableStyle": {
+                    "label": "Tabellenstil",
+                    "helpText": "Visueller Stil der Tabelle"
+                },
+                "showHeader": {
+                    "label": "Kopfzeile anzeigen",
+                    "helpText": "Tabellenkopf mit Überschriften anzeigen"
+                },
+                "striped": {
+                    "label": "Gestreift",
+                    "helpText": "Abwechselnde Zeilenhintergrundfarben"
+                },
+                "bordered": {
+                    "label": "Mit Rahmen",
+                    "helpText": "Rahmen um Tabellenzellen anzeigen"
+                }
+            }
+        },
+        "openingHours": {
+            "label": "Öffnungszeiten",
+            "description": "Zeigt wöchentliche Öffnungszeiten an",
+            "closed": "Geschlossen",
+            "days": {
+                "monday": "Montag",
+                "tuesday": "Dienstag",
+                "wednesday": "Mittwoch",
+                "thursday": "Donnerstag",
+                "friday": "Freitag",
+                "saturday": "Samstag",
+                "sunday": "Sonntag"
+            },
+            "config": {
+                "displayStyle": {
+                    "label": "Darstellungsart",
+                    "helpText": "Wie sollen die Öffnungszeiten angezeigt werden?",
+                    "placeholder": "Darstellungsart wählen",
+                    "options": {
+                        "table": "Tabelle",
+                        "list": "Liste"
+                    }
+                },
+                "showCurrentStatus": {
+                    "label": "Aktuellen Status anzeigen",
+                    "helpText": "Zeigt an, ob aktuell geöffnet oder geschlossen ist"
+                },
+                "timeFormat": {
+                    "label": "Uhrzeitformat",
+                    "helpText": "Format für die Uhrzeitanzeige",
+                    "placeholder": "Uhrzeitformat wählen",
+                    "options": {
+                        "24h": "24-Stunden-Format",
+                        "12h": "12-Stunden-Format"
+                    }
+                },
+                "monday": "Montag",
+                "tuesday": "Dienstag",
+                "wednesday": "Mittwoch",
+                "thursday": "Donnerstag",
+                "friday": "Freitag",
+                "saturday": "Samstag",
+                "sunday": "Sonntag",
+                "morningOpen": "Vormittag Öffnung",
+                "morningClose": "Vormittag Schließung",
+                "afternoonOpen": "Nachmittag Öffnung",
+                "afternoonClose": "Nachmittag Schließung",
+                "closed": "Geschlossen"
+            }
+        }
+    }
+}

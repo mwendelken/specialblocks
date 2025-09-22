@@ -1,0 +1,41 @@
+{
+	"name": "wendelken/special-blocks",
+	"description": "Shopware 6.7+ plugin providing special CMS blocks: MP4 Video, Table, Opening Hours for Shopping Experiences.",
+	"type": "shopware-platform-plugin",
+	"license": "MIT",
+	"version": "1.0.0",
+	"authors": [
+		{
+		"name": "Wendelken Dienstleistungen",
+		"homepage": "https://wendelken.net"
+		}
+	],
+	"require": {
+		"shopware/core": "~6.7"
+	},
+	"autoload": {
+		"psr-4": {
+			"SpecialBlocks\\": "src/"
+		}
+	},
+	"extra": {
+		"shopware-plugin-class": "SpecialBlocks\\SpecialBlocks",
+		"plugin-icon": "src/Resources/config/special-blocks.png",
+		"label": {
+            "de-DE": "Special Blocks",
+            "en-GB": "Special Blocks"
+        },
+        "description": {
+            "de-DE": "Erweitert die Erlebniswelten um spezielle Blöcke: Video, Tabelle und Öffnungszeiten",
+            "en-GB": "Extends Shopping Experiences with special blocks: Video, Table and Opening Hours"
+        },
+        "manufacturerLink": {
+            "de-DE": "https://wendelken.net",
+            "en-GB": "https://wendelken.net"
+        },
+        "supportLink": {
+            "de-DE": "https://wendelken.net",
+            "en-GB": "https://wendelken.net"
+        }
+	}
+}

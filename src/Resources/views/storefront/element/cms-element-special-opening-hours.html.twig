@@ -1,0 +1,154 @@
+{% block element_special_opening_hours %}
+    {# Include dynamic CSS for custom colors #}
+    {{ special_blocks_css() }}
+
+    <div class="cms-element-special-opening-hours">
+        
+        {% if element.data and element.data.getShowCurrentStatus() %}
+            {% set currentDay = 'now'|date('l')|lower %}
+            {% set currentTime = 'now'|date('H:i') %}
+            {% set isOpen = false %}
+            {% set nextCloseTime = '' %}
+            
+            {# Check if currently open #}
+            {% if element.data.weeklySchedule[currentDay] is defined %}
+                {% set todaySchedule = element.data.weeklySchedule[currentDay] %}
+                
+                {% if not todaySchedule.closed %}
+                    {# Check morning hours #}
+                    {% if todaySchedule.morning.open and todaySchedule.morning.close %}
+                        {% if currentTime >= todaySchedule.morning.open and currentTime <= todaySchedule.morning.close %}
+                            {% set isOpen = true %}
+                            {% set nextCloseTime = todaySchedule.morning.close %}
+                        {% endif %}
+                    {% endif %}
+                    
+                    {# Check afternoon hours #}
+                    {% if todaySchedule.afternoon.open and todaySchedule.afternoon.close %}
+                        {% if currentTime >= todaySchedule.afternoon.open and currentTime <= todaySchedule.afternoon.close %}
+                            {% set isOpen = true %}
+                            {% set nextCloseTime = todaySchedule.afternoon.close %}
+                        {% endif %}
+                    {% endif %}
+                    
+                    {# Check for continuous hours (morning open, no morning close, no afternoon open, afternoon close) #}
+                    {% if todaySchedule.morning.open and not todaySchedule.morning.close and not todaySchedule.afternoon.open and todaySchedule.afternoon.close %}
+                        {% if currentTime >= todaySchedule.morning.open and currentTime <= todaySchedule.afternoon.close %}
+                            {% set isOpen = true %}
+                            {% set nextCloseTime = todaySchedule.afternoon.close %}
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+            
+            <div class="opening-hours-current-status {{ isOpen ? 'status-open' : 'status-closed' }}">
+                <span class="status-indicator"></span>
+                <strong>
+                    {% if isOpen %}
+                        Geöffnet bis {{ nextCloseTime }}
+                    {% else %}
+                        Geschlossen
+                    {% endif %}
+                </strong>
+            </div>
+        {% endif %}
+
+        {% if element.data and element.data.weeklySchedule %}
+            {% if element.data.displayStyle == 'table' %}
+                <div class="opening-hours-table-wrapper">
+                    <table class="table opening-hours-table">
+                        <tbody>
+                            {% for dayKey, dayData in element.data.weeklySchedule %}
+                                <tr class="opening-hours-day">
+                                    <td class="day-name">
+                                        {% if dayKey == 'monday' %}Montag{% endif %}
+                                        {% if dayKey == 'tuesday' %}Dienstag{% endif %}
+                                        {% if dayKey == 'wednesday' %}Mittwoch{% endif %}
+                                        {% if dayKey == 'thursday' %}Donnerstag{% endif %}
+                                        {% if dayKey == 'friday' %}Freitag{% endif %}
+                                        {% if dayKey == 'saturday' %}Samstag{% endif %}
+                                        {% if dayKey == 'sunday' %}Sonntag{% endif %}
+                                    </td>
+                                    <td class="day-hours">
+                                        {% if dayData.closed %}
+                                            <span class="closed">Geschlossen</span>
+                                        {% else %}
+                                            {% set morningOpen = dayData.morning.open|default('') %}
+                                            {% set morningClose = dayData.morning.close|default('') %}
+                                            {% set afternoonOpen = dayData.afternoon.open|default('') %}
+                                            {% set afternoonClose = dayData.afternoon.close|default('') %}
+                                            
+                                            {# Logik für durchgehende Öffnung #}
+                                            {% if morningOpen and not morningClose and not afternoonOpen and afternoonClose %}
+                                                {# Durchgehend: Vormittag Start bis Nachmittag Ende #}
+                                                <div class="hours-list">
+                                                    <span class="hours-slot hours-continuous">{{ morningOpen }} - {{ afternoonClose }}</span>
+                                                </div>
+                                            {% else %}
+                                                {# Standard-Darstellung mit separaten Blöcken #}
+                                                <div class="hours-list">
+                                                    {% if morningOpen and morningClose %}
+                                                        <span class="hours-slot">{{ morningOpen }} - {{ morningClose }}</span>
+                                                    {% endif %}
+                                                    {% if afternoonOpen and afternoonClose %}
+                                                        <span class="hours-divider">&amp;</span><span class="hours-slot">{{ afternoonOpen }} - {{ afternoonClose }}</span>
+                                                    {% endif %}
+                                                </div>
+                                            {% endif %}
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                {# Listen-Darstellung #}
+                <div class="opening-hours-list-wrapper">
+                    {% for dayKey, dayData in element.data.weeklySchedule %}
+                        <div class="opening-hours-day-item">
+                            <strong class="day-name">
+                                {% if dayKey == 'monday' %}Montag{% endif %}
+                                {% if dayKey == 'tuesday' %}Dienstag{% endif %}
+                                {% if dayKey == 'wednesday' %}Mittwoch{% endif %}
+                                {% if dayKey == 'thursday' %}Donnerstag{% endif %}
+                                {% if dayKey == 'friday' %}Freitag{% endif %}
+                                {% if dayKey == 'saturday' %}Samstag{% endif %}
+                                {% if dayKey == 'sunday' %}Sonntag{% endif %}:
+                            </strong>
+                            {% if dayData.closed %}
+                                <span class="closed">Geschlossen</span>
+                            {% else %}
+                                {% set morningOpen = dayData.morning.open|default('') %}
+                                {% set morningClose = dayData.morning.close|default('') %}
+                                {% set afternoonOpen = dayData.afternoon.open|default('') %}
+                                {% set afternoonClose = dayData.afternoon.close|default('') %}
+                                
+                                <span class="day-hours">
+                                    {# Logik für durchgehende Öffnung #}
+                                    {% if morningOpen and not morningClose and not afternoonOpen and afternoonClose %}
+                                        {# Durchgehend: Vormittag Start bis Nachmittag Ende #}
+                                        <span class="hours-continuous">{{ morningOpen }} - {{ afternoonClose }}</span>
+                                    {% else %}
+                                        {# Standard-Darstellung #}
+                                        {% if morningOpen and morningClose %}
+                                            {{ morningOpen }} - {{ morningClose }}
+                                        {% endif %}
+                                        {% if afternoonOpen and afternoonClose %}
+                                            {% if morningOpen and morningClose %}, {% endif %}
+                                            {{ afternoonOpen }} - {{ afternoonClose }}
+                                        {% endif %}
+                                    {% endif %}
+                                </span>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% else %}
+            <div class="cms-element-special-opening-hours-placeholder">
+                <p>Keine Öffnungszeiten konfiguriert. Bitte konfigurieren Sie die Öffnungszeiten.</p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

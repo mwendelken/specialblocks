@@ -1,0 +1,8 @@
+{% sw_extends '@Storefront/storefront/layout/meta.html.twig' %}
+
+{% block layout_head_stylesheet %}
+    {{ parent() }}
+    
+    {# Special Blocks Plugin CSS #}
+    <link rel="stylesheet" href="{{ asset('bundles/specialblocks/css/special-blocks.css') }}">
+{% endblock %}

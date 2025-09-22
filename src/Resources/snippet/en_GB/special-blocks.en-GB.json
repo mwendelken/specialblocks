@@ -1,0 +1,121 @@
+{
+    "specialBlocks": {
+        "video": {
+            "label": "Special Video",
+            "description": "Displays an MP4 video",
+            "browserNotSupported": "Your browser does not support the video tag.",
+            "noVideoSelected": "No video selected. Please choose an MP4 file.",
+            "config": {
+                "videoSrc": {
+                    "label": "Video File",
+                    "helpText": "Select an MP4 video file"
+                },
+                "autoplay": {
+                    "label": "Autoplay",
+                    "helpText": "Start video automatically when page loads"
+                },
+                "controls": {
+                    "label": "Show Controls",
+                    "helpText": "Show play/pause and other control elements"
+                },
+                "muted": {
+                    "label": "Mute",
+                    "helpText": "Start video without sound"
+                },
+                "loop": {
+                    "label": "Loop",
+                    "helpText": "Play video in loop"
+                },
+                "width": {
+                    "label": "Width",
+                    "helpText": "CSS width of the video (e.g. 100%, 500px)"
+                },
+                "height": {
+                    "label": "Height",
+                    "helpText": "CSS height of the video (e.g. auto, 300px)"
+                }
+            }
+        },
+        "table": {
+            "label": "Special Table",
+            "description": "Displays a configurable table",
+            "noDataAvailable": "No table data available. Please configure the table.",
+            "config": {
+                "tableHeaders": {
+                    "label": "Table Headers",
+                    "helpText": "Column headers of the table"
+                },
+                "tableRows": {
+                    "label": "Table Rows",
+                    "helpText": "Data rows of the table"
+                },
+                "tableStyle": {
+                    "label": "Table Style",
+                    "helpText": "Visual style of the table"
+                },
+                "showHeader": {
+                    "label": "Show Header",
+                    "helpText": "Display table header with column titles"
+                },
+                "striped": {
+                    "label": "Striped",
+                    "helpText": "Alternating row background colors"
+                },
+                "bordered": {
+                    "label": "Bordered",
+                    "helpText": "Show borders around table cells"
+                }
+            }
+        },
+        "openingHours": {
+            "label": "Opening Hours",
+            "description": "Displays weekly opening hours",
+            "closed": "Closed",
+            "days": {
+                "monday": "Monday",
+                "tuesday": "Tuesday",
+                "wednesday": "Wednesday",
+                "thursday": "Thursday",
+                "friday": "Friday",
+                "saturday": "Saturday",
+                "sunday": "Sunday"
+            },
+            "config": {
+                "displayStyle": {
+                    "label": "Display Style",
+                    "helpText": "How should the opening hours be displayed?",
+                    "placeholder": "Select display style",
+                    "options": {
+                        "table": "Table",
+                        "list": "List"
+                    }
+                },
+                "showCurrentStatus": {
+                    "label": "Show Current Status",
+                    "helpText": "Shows if currently open or closed"
+                },
+                "timeFormat": {
+                    "label": "Time Format",
+                    "helpText": "Format for time display",
+                    "placeholder": "Select time format",
+                    "options": {
+                        "24h": "24-hour format",
+                        "12h": "12-hour format"
+                    }
+                },
+                "monday": "Monday",
+                "tuesday": "Tuesday",
+                "wednesday": "Wednesday",
+                "thursday": "Thursday",
+                "friday": "Friday",
+                "saturday": "Saturday",
+                "sunday": "Sunday",
+                "morningOpen": "Morning Open",
+                "morningClose": "Morning Close",
+                "afternoonOpen": "Afternoon Open",
+                "afternoonClose": "Afternoon Close",
+                "closed": "Closed"
+            }
+        }
+    }
+}

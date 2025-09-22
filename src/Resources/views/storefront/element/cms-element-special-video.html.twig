@@ -1,0 +1,20 @@
+{% block element_special_video %}
+    <div class="cms-element-special-video">
+        {% if element.data and element.data.videoSrc %}
+            <video 
+                class="special-video-player"
+                {% if element.data.autoplay %}autoplay{% endif %}
+                {% if element.data.controls %}controls{% endif %}
+                {% if element.data.muted %}muted{% endif %}
+                {% if element.data.loop %}loop{% endif %}
+                style="width: {{ element.data.width|default('100%') }}; height: {{ element.data.height|default('auto') }};">
+                <source src="{{ element.data.videoSrc }}" type="video/mp4">
+                Ihr Browser unterstützt das Video-Tag nicht.
+            </video>
+        {% else %}
+            <div class="cms-element-special-video-placeholder">
+                <p>Kein Video ausgewählt. Bitte konfigurieren Sie das Video-Element.</p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% block element_special_table %}
+    <div class="cms-element-special-table">
+        {% if element.data and element.data.headers and element.data.rows %}
+            <div class="table-responsive">
+                <table class="table special-table special-table-{{ element.data.style|default('default') }}
+                    {% if element.data.striped %} table-striped{% endif %}
+                    {% if element.data.bordered %} table-bordered{% endif %}">
+                    
+                    {% if element.data.showHeader and element.data.headers %}
+                        <thead class="special-table-header">
+                            <tr>
+                                {% for header in element.data.headers %}
+                                    <th>{{ header }}</th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                    {% endif %}
+                    
+                    <tbody>
+                        {% for row in element.data.rows %}
+                            <tr>
+                                {% for cell in row %}
+                                    <td>{{ cell }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="cms-element-special-table-placeholder">
+                <p>Keine Tabellendaten verfügbar. Bitte konfigurieren Sie die Tabelle.</p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

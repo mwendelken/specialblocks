@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
+
+    <card>
+        <title>Öffnungszeiten Status-Farben</title>
+        <title lang="en-GB">Opening Hours Status Colors</title>
+
+        <input-field type="colorpicker">
+            <name>statusOpenBackgroundColor</name>
+            <label>Hintergrundfarbe "Geöffnet"</label>
+            <label lang="en-GB">Background Color "Open"</label>
+            <defaultValue>#B8C5DD</defaultValue>
+            <helpText>Hintergrundfarbe für den "Geöffnet"-Status</helpText>
+            <helpText lang="en-GB">Background color for the "Open" status</helpText>
+        </input-field>
+
+        <input-field type="colorpicker">
+            <name>statusOpenTextColor</name>
+            <label>Textfarbe "Geöffnet"</label>
+            <label lang="en-GB">Text Color "Open"</label>
+            <defaultValue>#2B3136</defaultValue>
+            <helpText>Textfarbe für den "Geöffnet"-Status</helpText>
+            <helpText lang="en-GB">Text color for the "Open" status</helpText>
+        </input-field>
+
+        <input-field type="colorpicker">
+            <name>statusOpenDotColor</name>
+            <label>Punkt-Farbe "Geöffnet"</label>
+            <label lang="en-GB">Dot Color "Open"</label>
+            <defaultValue>#005B99</defaultValue>
+            <helpText>Farbe des Status-Punktes für "Geöffnet"</helpText>
+            <helpText lang="en-GB">Color of the status dot for "Open"</helpText>
+        </input-field>
+
+        <input-field type="colorpicker">
+            <name>statusClosedBackgroundColor</name>
+            <label>Hintergrundfarbe "Geschlossen"</label>
+            <label lang="en-GB">Background Color "Closed"</label>
+            <defaultValue>#f8d7da</defaultValue>
+            <helpText>Hintergrundfarbe für den "Geschlossen"-Status</helpText>
+            <helpText lang="en-GB">Background color for the "Closed" status</helpText>
+        </input-field>
+
+        <input-field type="colorpicker">
+            <name>statusClosedTextColor</name>
+            <label>Textfarbe "Geschlossen"</label>
+            <label lang="en-GB">Text Color "Closed"</label>
+            <defaultValue>#721c24</defaultValue>
+            <helpText>Textfarbe für den "Geschlossen"-Status</helpText>
+            <helpText lang="en-GB">Text color for the "Closed" status</helpText>
+        </input-field>
+
+        <input-field type="colorpicker">
+            <name>statusClosedDotColor</name>
+            <label>Punkt-Farbe "Geschlossen"</label>
+            <label lang="en-GB">Dot Color "Closed"</label>
+            <defaultValue>#dc3545</defaultValue>
+            <helpText>Farbe des Status-Punktes für "Geschlossen"</helpText>
+            <helpText lang="en-GB">Color of the status dot for "Closed"</helpText>
+        </input-field>
+    </card>
+</config>

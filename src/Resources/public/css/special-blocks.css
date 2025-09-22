@@ -1,0 +1,193 @@
+/* Special Blocks Plugin CSS */
+
+/* Special Video Block Styles */
+.cms-element-special-video .special-video-player {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cms-element-special-video .cms-element-special-video-placeholder {
+    padding: 2rem;
+    text-align: center;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    border: 2px dashed #dee2e6;
+}
+
+/* Special Table Block Styles */
+.cms-element-special-table .special-table {
+    margin-bottom: 1rem;
+}
+
+.cms-element-special-table .special-table.special-table-default .special-table-header {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.cms-element-special-table .special-table.special-table-primary .special-table-header {
+    background-color: #005b99;
+    color: white;
+    font-weight: 600;
+}
+
+.cms-element-special-table .special-table.special-table-dark {
+    background-color: #343a40;
+    color: white;
+}
+
+.cms-element-special-table .special-table.special-table-dark .special-table-header {
+    background-color: #495057;
+    color: white;
+    font-weight: 600;
+}
+
+.cms-element-special-table .special-table .special-table-cell {
+    vertical-align: middle;
+    padding: 0.75rem;
+}
+
+.cms-element-special-table .special-table .special-table-header {
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.cms-element-special-table .cms-element-special-table-placeholder {
+    padding: 2rem;
+    text-align: center;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    border: 2px dashed #dee2e6;
+}
+
+/* Special Opening Hours Block Styles */
+.cms-element-special-opening-hours .opening-hours-current-status {
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cms-element-special-opening-hours .opening-hours-current-status.status-open {
+    background-color: #B8C5DD;
+    color: #2B3136;
+    border: 1px solid #B8C5DD;
+}
+
+.cms-element-special-opening-hours .opening-hours-current-status.status-open .status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #005B99;
+}
+
+.cms-element-special-opening-hours .opening-hours-current-status.status-closed {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.cms-element-special-opening-hours .opening-hours-current-status.status-closed .status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #dc3545;
+}
+
+.cms-element-special-opening-hours .opening-hours-table .opening-hours-day .day-name {
+    font-weight: 600;
+    width: 40%;
+    border-right: 1px solid #dee2e6;
+}
+
+.cms-element-special-opening-hours .opening-hours-table .opening-hours-day .day-hours .closed {
+    color: #6c757d;
+    font-style: italic;
+}
+
+.cms-element-special-opening-hours .opening-hours-table .opening-hours-day .day-hours .hours-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+}
+
+.cms-element-special-opening-hours .opening-hours-table .opening-hours-day .day-hours .hours-slot {
+    background-color: #e9ecef;
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.875rem;
+}
+
+.cms-element-special-opening-hours .opening-hours-table .opening-hours-day .day-hours .hours-divider {
+    margin: 4px 0.25rem;
+}
+
+.cms-element-special-opening-hours .opening-hours-table .opening-hours-day .day-hours .hours-separator {
+    margin: 0 0.25rem;
+}
+
+.cms-element-special-opening-hours .hours-continuous {
+    /*background-color: #e8f5e8;*/
+    color: #2b3136;
+    padding: 0.35rem 0;
+    /*border-radius: 4px;
+    /*font-weight: 600;
+    border: 1px solid #B8C5DD;*/
+}
+
+.cms-element-special-opening-hours .opening-hours-list-wrapper .opening-hours-day-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.cms-element-special-opening-hours .opening-hours-list-wrapper .opening-hours-day-item:last-child {
+    border-bottom: none;
+}
+
+.cms-element-special-opening-hours .opening-hours-list-wrapper .opening-hours-day-item .day-name {
+    font-weight: 600;
+    min-width: 120px;
+}
+
+.cms-element-special-opening-hours .opening-hours-list-wrapper .opening-hours-day-item .day-hours .closed {
+    color: #6c757d;
+    font-style: italic;
+}
+
+.cms-element-special-opening-hours .opening-hours-list-wrapper .hours-continuous {
+    /*background-color: #B8C5DD;*/
+    color: #2B3136;
+    padding: 0.25rem 0;
+    /*border-radius: 3px;*/
+    /*font-weight: 300;*/
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .cms-element-special-opening-hours .opening-hours-table .opening-hours-day .day-name,
+    .cms-element-special-opening-hours .opening-hours-table .opening-hours-day .day-hours {
+        display: block;
+        width: 100%;
+        border-right: none;
+        padding: 0.25rem 0.75rem;
+    }
+    
+    .cms-element-special-opening-hours .opening-hours-table .opening-hours-day .day-name {
+        border-bottom: 1px solid #dee2e6;
+        background-color: #f8f9fa;
+    }
+
+    .cms-element-special-opening-hours .opening-hours-list-wrapper .opening-hours-day-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+}
