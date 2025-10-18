@@ -239,9 +239,8 @@ Wenn Ihnen dieses Plugin hilft, erwägen Sie:
 **Autor:** Wendelken Dienstleistungen
 **Website:** https://wendelken.net
 
-
 Hat dir das Plugin Zeit gespart oder graue Haare verhindert?  
-Dann sag einfach „Danke“ mit einem Kaffee ☕ 😄  
+Dann sag einfach „Danke“ mit einem Kaffee ☕ 😄
 
 <a href="https://www.buymeacoffee.com/mwendelken">
   <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=mwendelken&button_colour=5F7FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" />
