@@ -3,9 +3,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Shopware Version](https://img.shields.io/badge/Shopware-6.7%2B-blue.svg)](https://www.shopware.com/)
 
-Ein kostenloses Shopware 6.7+ Plugin, das die Erlebniswelten um essentielle CMS-Blöcke erweitert - **keine zusätzlichen CSS-Frameworks erforderlich!** Dieses Plugin integriert sich nahtlos in Ihr bestehendes Shopware-Theme und respektiert Ihr Design-System.
+Ein kostenloses Shopware 6.7+ Plugin, das die Erlebniswelten um essentielle CMS-Blöcke erweitert - **keine zusätzlichen CSS-Frameworks erforderlich!** Dieses Plugin integriert sich nahtlos in Ihr bestehendes Shopware-Theme und nutzt Ihr Design.
 
-## Community Geschenk
+## Community Geschenk 
 
 Dieses Plugin ist mein Weg **Danke** zu sagen an die großartige Shopware-Community, die immer hilfsbereit und unterstützend war. Es ist komplett kostenlos und Open Source - nutzen Sie es, modifizieren Sie es und teilen Sie es!
 
