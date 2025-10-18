@@ -233,7 +233,7 @@ Wenn Ihnen dieses Plugin hilft, erwägen Sie:
 
 ---
 
-**Mit Liebe für die Shopware-Community erstellt**
+**Mit Herz für die Shopware-Community erstellt**
 
 **Version:** 1.0.0
 **Autor:** Wendelken Dienstleistungen
