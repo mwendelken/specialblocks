@@ -1,0 +1,63 @@
+# Shopware Plugin .gitignore
+
+# Compiled assets (werden bei der Installation automatisch generiert)
+/src/Resources/public/administration/assets/
+/src/Resources/public/storefront/assets/
+
+# Node modules (falls später ein Build-System hinzugefügt wird)
+node_modules/
+package-lock.json
+yarn.lock
+
+# IDE und Editor-Dateien
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Composer
+/vendor/
+composer.lock
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporäre Dateien
+*.tmp
+*.temp
+.cache/
+
+# System-Dateien
+Thumbs.db
+ehthumbs.db
+
+# Backup-Dateien
+*.bak
+*.backup
+*~
+
+# PHPUnit / Testing
+.phpunit.result.cache
+/phpunit.xml
+coverage/
+
+# Build-Artefakte
+/build/
+/dist/
+
+# Environment-Dateien
+.env
+.env.local
+.env.*.local
+
+# Claude Dateien
+.claude/
+Claude.md
+
+# Dev-Data
+images/

@@ -1,79 +1,79 @@
-# Special Blocks for Shopware 6.7+
+# Special Blocks für Shopware 6.7+
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Shopware Version](https://img.shields.io/badge/Shopware-6.7%2B-blue.svg)](https://www.shopware.com/)
 
-A free Shopware 6.7+ plugin that extends Shopping Experiences with essential CMS blocks - **no additional CSS frameworks required!** This plugin integrates seamlessly with your existing Shopware theme and respects your design system.
+Ein kostenloses Shopware 6.7+ Plugin, das die Erlebniswelten um essentielle CMS-Blöcke erweitert - **keine zusätzlichen CSS-Frameworks erforderlich!** Dieses Plugin integriert sich nahtlos in Ihr bestehendes Shopware-Theme und respektiert Ihr Design-System.
 
-## Community Gift 🎁
+## Community Geschenk
 
-This plugin is our way of saying **thank you** to the amazing Shopware community that has always been supportive and helpful. It's completely free and open source - use it, modify it, and share it!
+Dieses Plugin ist unser Weg **Danke** zu sagen an die großartige Shopware-Community, die immer hilfsbereit und unterstützend war. Es ist komplett kostenlos und Open Source - nutzen Sie es, modifizieren Sie es und teilen Sie es!
 
 ## Features
 
 ### Video Block
 
-- **MP4 video integration** with full control options
-- Autoplay, loop, mute, and controls configuration
-- Responsive design that adapts to your theme
-- Custom dimensions and aspect ratios
+- **MP4-Video-Integration** mit vollständigen Steuerungsoptionen
+- Konfiguration für Autoplay, Loop, Mute und Controls
+- Responsive Design, das sich an Ihr Theme anpasst
+- Individuelle Dimensionen und Seitenverhältnisse
 
-### Table Block
+### Tabellen Block
 
-- **Dynamic table creation** with configurable rows and columns
-- Multiple styling options (Standard, Primary, Dark) that respect your theme colors
-- Striped and bordered layouts
-- Fully responsive on all devices
-- Perfect for pricing tables, comparisons, or data display
+- **Dynamische Tabellenerstellung** mit konfigurierbaren Zeilen und Spalten
+- Mehrere Styling-Optionen (Standard, Primary, Dark), die Ihre Theme-Farben respektieren
+- Gestreifte und umrandete Layouts
+- Vollständig responsive auf allen Geräten
+- Perfekt für Preistabellen, Vergleiche oder Datendarstellung
 
-### Opening Hours Block
+### Öffnungszeiten Block
 
-- **Weekly schedule display** with morning/afternoon splits
-- Real-time status indicator (Open/Closed)
-- Flexible display modes (Table or List view)
-- Support for both 12h and 24h time formats
-- Customizable status colors via admin interface
-- Perfect for stores, restaurants, or service businesses
+- **Wochenplan-Anzeige** mit Vormittag/Nachmittag-Aufteilung
+- Echtzeit-Status-Indikator (Geöffnet/Geschlossen)
+- Flexible Anzeigemodi (Tabellen- oder Listenansicht)
+- Unterstützung für 12h und 24h Zeitformate
+- Anpassbare Status-Farben über das Admin-Interface
+- Perfekt für Geschäfte, Restaurants oder Dienstleistungsunternehmen
 
-## Theme Integration
+## Theme-Integration
 
-**No CSS framework dependencies!** This plugin is designed to work seamlessly with:
+**Keine CSS-Framework-Abhängigkeiten!** Dieses Plugin funktioniert nahtlos mit:
 
-- Default Shopware theme
-- Custom themes
-- Third-party themes
-- Your existing design system
+- Standard-Shopware-Theme
+- Individuellen Themes
+- Themes von Drittanbietern
+- Ihrem bestehenden Design-System
 
-The blocks automatically adapt to your theme's styling and color scheme, ensuring a consistent look and feel across your entire shop.
+Die Blöcke passen sich automatisch an das Styling und Farbschema Ihres Themes an und sorgen so für ein konsistentes Erscheinungsbild in Ihrem gesamten Shop.
 
 ## Installation
 
-### Method 1: Direct Download (Recommended)
+### Methode 1: Direkter Download (Empfohlen)
 
-1. Download the latest release from [GitHub Releases](../../releases)
-2. Extract the ZIP file to your Shopware `custom/plugins/` directory
-3. Install and activate the plugin:
+1. Laden Sie die neueste Version von [GitHub Releases](../../releases) herunter
+2. Entpacken Sie die ZIP-Datei in Ihr Shopware `custom/plugins/` Verzeichnis
+3. Installieren und aktivieren Sie das Plugin:
 
 ```bash
-cd /path/to/your/shopware
+cd /pfad/zu/ihrem/shopware
 bin/console plugin:install SpecialBlocks
 bin/console plugin:activate SpecialBlocks
 bin/console cache:clear
 ```
 
-4. Compile assets:
+4. Kompilieren Sie die Assets:
 
 ```bash
 bin/console bundle:dump
 bin/console asset:install
 ```
 
-### Method 2: Git Clone
+### Methode 2: Git Clone
 
 ```bash
-cd /path/to/your/shopware/custom/plugins
-git clone https://github.com/your-username/special-blocks.git SpecialBlocks
-cd /path/to/your/shopware
+cd /pfad/zu/ihrem/shopware/custom/plugins
+git clone https://github.com/mwendelken/specialblocks.git SpecialBlocks
+cd /pfad/zu/ihrem/shopware
 bin/console plugin:install SpecialBlocks
 bin/console plugin:activate SpecialBlocks
 bin/console cache:clear
@@ -81,163 +81,170 @@ bin/console bundle:dump
 bin/console asset:install
 ```
 
-## Usage
+## Verwendung
 
-### Adding Special Blocks to Your Pages
+### Special Blocks zu Ihren Seiten hinzufügen
 
-1. Go to **Content > Shopping Experiences** in your Shopware admin
-2. Create a new Shopping Experience or edit an existing one
-3. Find the new blocks in the **"Special Blocks"** category
-4. Drag and drop them into your layout
-5. Configure each block according to your needs
+1. Gehen Sie zu **Inhalte > Erlebniswelten** in Ihrem Shopware-Admin
+2. Erstellen Sie eine neue Erlebniswelt oder bearbeiten Sie eine bestehende
+3. Finden Sie die neuen Blöcke in der Kategorie **"Special Blocks"**
+4. Ziehen Sie sie per Drag & Drop in Ihr Layout
+5. Konfigurieren Sie jeden Block nach Ihren Bedürfnissen
 
-### Block Configuration
+### Block-Konfiguration
 
-#### Video Block Configuration
+#### Video Block-Konfiguration
 
-- **Video File**: Select MP4 file from Media Manager
-- **Autoplay**: Enable/disable automatic playback
-- **Controls**: Show/hide video controls
-- **Muted**: Start video muted
-- **Loop**: Enable continuous playback
-- **Dimensions**: Set custom width and height
+- **Video-Datei**: MP4-Datei aus dem Media Manager auswählen
+- **Autoplay**: Automatische Wiedergabe aktivieren/deaktivieren
+- **Controls**: Video-Steuerelemente anzeigen/verbergen
+- **Muted**: Video stumm starten
+- **Loop**: Kontinuierliche Wiedergabe aktivieren
+- **Dimensionen**: Individuelle Breite und Höhe festlegen
 
-#### Table Block Configuration
+#### Tabellen Block-Konfiguration
 
-- **Headers**: Define column titles
-- **Rows**: Add table content row by row
-- **Style**: Choose from Standard, Primary, or Dark themes
-- **Layout Options**: Enable striped rows, borders, or header visibility
+- **Kopfzeilen**: Spaltentitel definieren
+- **Zeilen**: Tabelleninhalt Zeile für Zeile hinzufügen
+- **Stil**: Wählen Sie zwischen Standard, Primary oder Dark Themes
+- **Layout-Optionen**: Gestreifte Zeilen, Rahmen oder Kopfzeilen-Sichtbarkeit aktivieren
 
-#### Opening Hours Configuration
+#### Öffnungszeiten-Konfiguration
 
-- **Weekly Schedule**: Set morning/afternoon hours for each day
-- **Closed Days**: Mark specific days as closed
-- **Display Mode**: Choose between table or list layout
-- **Status Display**: Show current open/closed status
-- **Time Format**: Select 12h or 24h format
-- **Status Colors**: Customize colors in plugin settings
+- **Wochenplan**: Vormittag/Nachmittag-Zeiten für jeden Tag festlegen
+- **Geschlossene Tage**: Bestimmte Tage als geschlossen markieren
+- **Anzeigemodus**: Zwischen Tabellen- oder Listenlayout wählen
+- **Status-Anzeige**: Aktuellen Geöffnet/Geschlossen-Status anzeigen
+- **Zeitformat**: 12h oder 24h Format auswählen
+- **Status-Farben**: Farben in den Plugin-Einstellungen anpassen
 
-## Requirements
+## Systemanforderungen
 
-- **Shopware 6.7+** (Required)
+- **Shopware 6.7+** (Erforderlich)
 - PHP 8.1+
-- No additional dependencies
+- Keine zusätzlichen Abhängigkeiten
 
-## Architecture
+## Architektur
 
-This plugin follows Shopware 6.7+ best practices:
+Dieses Plugin folgt den Best Practices von Shopware 6.7+:
 
-- **Element Resolvers Only**: No deprecated Block Resolvers (removed in 6.7+)
-- **Modern Architecture**: Clean separation between backend logic, admin interface, and frontend templates
-- **Theme Compatible**: Respects existing theme styles and variables
-- **Performance Optimized**: Minimal footprint with no external dependencies
+- **Nur Element Resolvers**: Keine veralteten Block Resolvers (in 6.7+ entfernt)
+- **Moderne Architektur**: Klare Trennung zwischen Backend-Logik, Admin-Interface und Frontend-Templates
+- **Theme-Kompatibel**: Respektiert bestehende Theme-Stile und Variablen
+- **Performance-Optimiert**: Minimaler Footprint ohne externe Abhängigkeiten
 
-## Contributing
+## Mitwirken
 
-We welcome contributions from the community! Here's how you can help:
+Wir begrüßen Beiträge aus der Community! So können Sie helfen:
 
-### Development Setup
+### Entwicklungsumgebung einrichten
 
-1. Clone the repository
-2. Set up a Shopware 6.7+ development environment
-3. Install the plugin in development mode
-4. Make your changes
-5. Test thoroughly
+1. Repository klonen
+2. Shopware 6.7+ Entwicklungsumgebung einrichten
+3. Plugin im Entwicklungsmodus installieren
+4. Ihre Änderungen vornehmen
+5. Gründlich testen
 
-### Contribution Guidelines
+### Richtlinien für Beiträge
 
-- Follow Shopware coding standards
-- Maintain compatibility with Shopware 6.7+
-- Ensure theme compatibility
-- Add appropriate documentation
-- Test with different themes
+- Shopware-Coding-Standards befolgen
+- Kompatibilität mit Shopware 6.7+ aufrechterhalten
+- Theme-Kompatibilität sicherstellen
+- Angemessene Dokumentation hinzufügen
+- Mit verschiedenen Themes testen
 
-### Reporting Issues
+### Probleme melden
 
-Found a bug or have a feature request? Please create an issue on GitHub with:
+Einen Bug gefunden oder einen Feature-Wunsch? Bitte erstellen Sie ein Issue auf GitHub mit:
 
-- Shopware version
-- PHP version
-- Theme information
-- Detailed description of the issue
-- Steps to reproduce
+- Shopware-Version
+- PHP-Version
+- Theme-Informationen
+- Detaillierte Beschreibung des Problems
+- Schritte zur Reproduktion
 
 ## Changelog
 
 ### Version 1.0.0
 
-- Initial release
-- Video Block with full MP4 support
-- Table Block with multiple styling options
-- Opening Hours Block with status indicators
-- Full Shopware 6.7+ compatibility
-- Theme integration support
+- Erstveröffentlichung
+- Video Block mit vollständiger MP4-Unterstützung
+- Tabellen Block mit mehreren Styling-Optionen
+- Öffnungszeiten Block mit Status-Indikatoren
+- Vollständige Shopware 6.7+ Kompatibilität
+- Theme-Integrations-Unterstützung
 
-## Acknowledgments
+Siehe [Changelog.md](Changelog.md) für detaillierte Änderungen.
 
-Special thanks to:
+## Danksagungen
 
-- The **Shopware Community** for continuous support and inspiration
-- All contributors who help improve this plugin
-- Beta testers who provided valuable feedback
+Besonderer Dank an:
 
-## Troubleshooting
+- Die **Shopware-Community** für kontinuierliche Unterstützung und Inspiration
+- Alle Mitwirkenden, die helfen, dieses Plugin zu verbessern
+- Beta-Tester, die wertvolles Feedback gegeben haben
 
-### Common Issues
+## Fehlerbehebung
 
-**"Class AbstractCmsBlockResolver not found" Error:**
+### Häufige Probleme
 
-- This error occurs when using the plugin with older Shopware versions
-- The plugin is optimized for Shopware 6.7+ and doesn't require Block Resolvers anymore
-- Solution: Ensure you're using Shopware 6.7+
+**"Class AbstractCmsBlockResolver not found" Fehler:**
 
-**Elements not appearing in admin:**
+- Dieser Fehler tritt bei älteren Shopware-Versionen auf
+- Das Plugin ist für Shopware 6.7+ optimiert und benötigt keine Block Resolvers mehr
+- Lösung: Stellen Sie sicher, dass Sie Shopware 6.7+ verwenden
 
-- Check service registration in `services.xml`
-- Clear cache: `bin/console cache:clear`
-- Recompile assets: `bin/console bundle:dump && bin/console asset:install`
+**Elemente erscheinen nicht im Admin:**
 
-**Configuration not saving:**
+- Service-Registrierung in `services.xml` überprüfen
+- Cache leeren: `bin/console cache:clear`
+- Assets neu kompilieren: `bin/console bundle:dump && bin/console asset:install`
 
-- Verify Vue.js component data binding
-- Check browser console for JavaScript errors
+**Konfiguration wird nicht gespeichert:**
 
-**Frontend not rendering:**
+- Vue.js-Komponenten-Datenbindung überprüfen
+- Browser-Konsole auf JavaScript-Fehler prüfen
 
-- Verify Twig template paths
-- Check data structure access in templates
-- Ensure theme compatibility
+**Frontend rendert nicht:**
 
-### General Troubleshooting
+- Twig-Template-Pfade überprüfen
+- Datenzugriff auf Datenstrukturen in Templates prüfen
+- Theme-Kompatibilität sicherstellen
 
-For questions or problems:
+### Allgemeine Fehlerbehebung
 
-1. Check Shopware logs in `var/log/`
-2. Ensure all files are correctly uploaded
-3. Clear cache: `bin/console cache:clear`
-4. Recompile assets
+Bei Fragen oder Problemen:
 
-## License
+1. Shopware-Logs in `var/log/` überprüfen
+2. Sicherstellen, dass alle Dateien korrekt hochgeladen wurden
+3. Cache leeren: `bin/console cache:clear`
+4. Assets neu kompilieren
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## Lizenz
 
-**Free to use and modify!**
+Dieses Projekt ist unter der MIT-Lizenz lizenziert - siehe [LICENSE](LICENSE) Datei für Details.
+
+**Frei zu verwenden, zu modifizieren und zu verteilen!**
 
 ## Links
 
-- [Report Issues](../../issues)
-- [Feature Requests](../../issues)
+- [GitHub Repository](https://github.com/mwendelken/specialblocks)
+- [Probleme melden](https://github.com/mwendelken/specialblocks/issues)
+- [Feature-Wünsche](https://github.com/mwendelken/specialblocks/issues)
 
-## Support the Community
+## Die Community unterstützen
 
-If this plugin helps you, consider:
+Wenn Ihnen dieses Plugin hilft, erwägen Sie:
 
-- Starring this repository
-- Reporting bugs or suggesting improvements
-- Contributing code or documentation
-- Sharing with other Shopware developers
+- Dieses Repository mit einem Stern versehen
+- Bugs melden oder Verbesserungen vorschlagen
+- Code oder Dokumentation beitragen
+- Mit anderen Shopware-Entwicklern teilen
 
 ---
 
-**Made with ❤️ for the Shopware Community**
+**Mit Liebe für die Shopware-Community erstellt**
+
+**Version:** 1.0.0
+**Autor:** Wendelken Dienstleistungen
+**Website:** https://wendelken.net

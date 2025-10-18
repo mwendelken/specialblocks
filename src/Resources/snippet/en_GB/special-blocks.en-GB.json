@@ -1,4 +1,19 @@
 {
+    "sw-cms": {
+        "elements": {
+            "special": {
+                "video": {
+                    "label": "Special Video"
+                },
+                "table": {
+                    "label": "Special Table"
+                },
+                "openingHours": {
+                    "label": "Opening Hours"
+                }
+            }
+        }
+    },
     "specialBlocks": {
         "video": {
             "label": "Special Video",

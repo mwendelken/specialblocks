@@ -6,52 +6,40 @@
             <div class="sw-cms-el-config-special-opening-hours__display-settings__row">
 
                 <div class="sw-cms-el-config-special-opening-hours__display-settings__column">
-                    <label class="sw-field__label">{{ $t('specialBlocks.openingHours.config.displayStyle.label') }}</label>
-                    <select 
-                        class="sw-field__select"
-                        :value="localDisplayStyle"
-                        @change="onDisplayStyleChange($event.target.value)"
-                        style="padding: 8px; width: 100%; border: 1px solid #d1d5db; border-radius: 4px;">
-                        <option value="">{{ $t('specialBlocks.openingHours.config.displayStyle.placeholder') }}</option>
-                        <option 
-                            v-for="option in displayStyleOptions" 
-                            :key="option.value"
-                            :value="option.value"
-                            :selected="option.value === localDisplayStyle">
-                            {{ option.label }}
-                        </option>
-                    </select>
+                    <sw-single-select
+                        v-model="currentDisplayStyle"
+                        :options="displayStyleOptions"
+                        :label="$t('specialBlocks.openingHours.config.displayStyle.label')"
+                        :placeholder="$t('specialBlocks.openingHours.config.displayStyle.placeholder')"
+                        labelProperty="label"
+                        valueProperty="value"
+                        @change="onDisplayStyleChange">
+                    </sw-single-select>
                 </div>
 
                 <div class="sw-cms-el-config-special-opening-hours__display-settings__column">
-                    <label class="sw-field__label" style="margin-bottom:2px">
+                    <label class="sw-cms-el-config-special-opening-hours__display-settings__checkbox-label">
                         {{ $t('specialBlocks.openingHours.config.showCurrentStatus.label') }}
                     </label>
                     <label class="sw-cms-el-config-special-opening-hours__display-settings__checkbox-wrapper">
                         <input
                             type="checkbox"
-                            :checked="localShowStatus"
-                            @change="onShowStatusChange($event.target.checked)">
+                            v-model="element.config.showCurrentStatus.value"
+                            @change="onElementUpdate(element)">
                         Aktiviert
                     </label>
                 </div>
 
                 <div class="sw-cms-el-config-special-opening-hours__display-settings__column">
-                    <label class="sw-field__label">{{ $t('specialBlocks.openingHours.config.timeFormat.label') }}</label>
-                    <select 
-                        class="sw-field__select"
-                        :value="localTimeFormat"
-                        @change="onTimeFormatChange($event.target.value)"
-                        style="padding: 8px; width: 100%; border: 1px solid #d1d5db; border-radius: 4px;">
-                        <option value="">{{ $t('specialBlocks.openingHours.config.timeFormat.placeholder') }}</option>
-                        <option 
-                            v-for="option in timeFormatOptions" 
-                            :key="option.value"
-                            :value="option.value"
-                            :selected="option.value === localTimeFormat">
-                            {{ option.label }}
-                        </option>
-                    </select>
+                    <sw-single-select
+                        v-model="currentTimeFormat"
+                        :options="timeFormatOptions"
+                        :label="$t('specialBlocks.openingHours.config.timeFormat.label')"
+                        :placeholder="$t('specialBlocks.openingHours.config.timeFormat.placeholder')"
+                        labelProperty="label"
+                        valueProperty="value"
+                        @change="onTimeFormatChange">
+                    </sw-single-select>
                 </div>
 
             </div>
@@ -92,12 +80,12 @@
                             <div class="sw-cms-el-config-special-opening-hours__time-inputs">
                                 <input
                                     type="time"
-                                    :value="element.config[day + '_morning_open']?.value || ''"
+                                    :value="element.config[day + '_morning_open'].value"
                                     @input="updateTime(day, 'morning', 'open', $event.target.value)">
                                 <span>{{ $t('specialBlocks.openingHours.config.timeTo') }}</span>
                                 <input
                                     type="time"
-                                    :value="element.config[day + '_morning_close']?.value || ''"
+                                    :value="element.config[day + '_morning_close'].value"
                                     @input="updateTime(day, 'morning', 'close', $event.target.value)">
                             </div>
                         </div>
@@ -110,12 +98,12 @@
                             <div class="sw-cms-el-config-special-opening-hours__time-inputs">
                                 <input
                                     type="time"
-                                    :value="element.config[day + '_afternoon_open']?.value || ''"
+                                    :value="element.config[day + '_afternoon_open'].value"
                                     @input="updateTime(day, 'afternoon', 'open', $event.target.value)">
                                 <span>{{ $t('specialBlocks.openingHours.config.timeTo') }}</span>
                                 <input
                                     type="time"
-                                    :value="element.config[day + '_afternoon_close']?.value || ''"
+                                    :value="element.config[day + '_afternoon_close'].value"
                                     @input="updateTime(day, 'afternoon', 'close', $event.target.value)">
                             </div>
                         </div>
