@@ -7,7 +7,7 @@ Ein kostenloses Shopware 6.7+ Plugin, das die Erlebniswelten um essentielle CMS-
 
 ## Community Geschenk
 
-Dieses Plugin ist unser Weg **Danke** zu sagen an die großartige Shopware-Community, die immer hilfsbereit und unterstützend war. Es ist komplett kostenlos und Open Source - nutzen Sie es, modifizieren Sie es und teilen Sie es!
+Dieses Plugin ist mein Weg **Danke** zu sagen an die großartige Shopware-Community, die immer hilfsbereit und unterstützend war. Es ist komplett kostenlos und Open Source - nutzen Sie es, modifizieren Sie es und teilen Sie es!
 
 ## Features
 
@@ -56,8 +56,8 @@ Die Blöcke passen sich automatisch an das Styling und Farbschema Ihres Themes a
 
 ```bash
 cd /pfad/zu/ihrem/shopware
-bin/console plugin:install SpecialBlocks
-bin/console plugin:activate SpecialBlocks
+bin/console plugin:refresh
+bin/console plugin:install --activate SpecialBlocks
 bin/console cache:clear
 ```
 
@@ -74,11 +74,14 @@ bin/console asset:install
 cd /pfad/zu/ihrem/shopware/custom/plugins
 git clone https://github.com/mwendelken/specialblocks.git SpecialBlocks
 cd /pfad/zu/ihrem/shopware
-bin/console plugin:install SpecialBlocks
-bin/console plugin:activate SpecialBlocks
+bin/console plugin:refresh
+bin/console plugin:install --activate SpecialBlocks
 bin/console cache:clear
 bin/console bundle:dump
-bin/console asset:install
+bin/console assets:install
+bin/console theme:compile
+bin/build-administration.sh
+bin/build-storefront.sh
 ```
 
 ## Verwendung
@@ -87,15 +90,20 @@ bin/console asset:install
 
 1. Gehen Sie zu **Inhalte > Erlebniswelten** in Ihrem Shopware-Admin
 2. Erstellen Sie eine neue Erlebniswelt oder bearbeiten Sie eine bestehende
-3. Finden Sie die neuen Blöcke in der Kategorie **"Special Blocks"**
-4. Ziehen Sie sie per Drag & Drop in Ihr Layout
-5. Konfigurieren Sie jeden Block nach Ihren Bedürfnissen
+3. Finden Sie die drei neuen Elemente in der Elementübersicht
+4. Verfügbare Blöcke:   
+   - **Video Block** - MP4-Video-Integration
+   - **Tabellen Block** - Dynamische Tabellen
+   - **Öffnungszeiten Block** - Wochenplan mit Status-Anzeige
+5. Tauschen Sie das Element über die Schaltfläche "Element austauschen"
+6. Konfigurieren Sie den Block über das Zahnrad-Symbol
+7. Speichern und publizieren Sie die Erlebniswelt
 
 ### Block-Konfiguration
 
 #### Video Block-Konfiguration
 
-- **Video-Datei**: MP4-Datei aus dem Media Manager auswählen
+- **Video-Datei**: MP4-Video-URL aus OneDrive, Google-Drive, Dropbox, etc. (Video-URL muss öffentlich abrufbar sein) einfügen und speichern.
 - **Autoplay**: Automatische Wiedergabe aktivieren/deaktivieren
 - **Controls**: Video-Steuerelemente anzeigen/verbergen
 - **Muted**: Video stumm starten
@@ -134,24 +142,6 @@ Dieses Plugin folgt den Best Practices von Shopware 6.7+:
 - **Performance-Optimiert**: Minimaler Footprint ohne externe Abhängigkeiten
 
 ## Mitwirken
-
-Wir begrüßen Beiträge aus der Community! So können Sie helfen:
-
-### Entwicklungsumgebung einrichten
-
-1. Repository klonen
-2. Shopware 6.7+ Entwicklungsumgebung einrichten
-3. Plugin im Entwicklungsmodus installieren
-4. Ihre Änderungen vornehmen
-5. Gründlich testen
-
-### Richtlinien für Beiträge
-
-- Shopware-Coding-Standards befolgen
-- Kompatibilität mit Shopware 6.7+ aufrechterhalten
-- Theme-Kompatibilität sicherstellen
-- Angemessene Dokumentation hinzufügen
-- Mit verschiedenen Themes testen
 
 ### Probleme melden
 

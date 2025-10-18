@@ -1,5 +1,7 @@
 # Shopware Plugin .gitignore
 
+.gitignore
+
 # Compiled assets (werden bei der Installation automatisch generiert)
 /src/Resources/public/administration/assets/
 /src/Resources/public/storefront/assets/
