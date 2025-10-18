@@ -5,7 +5,7 @@
 
 Ein kostenloses Shopware 6.7+ Plugin, das die Erlebniswelten um essentielle CMS-Blöcke erweitert - **keine zusätzlichen CSS-Frameworks erforderlich!** Dieses Plugin integriert sich nahtlos in Ihr bestehendes Shopware-Theme und nutzt Ihr Design.
 
-## Community Geschenk 
+## Community Geschenk
 
 Dieses Plugin ist mein Weg **Danke** zu sagen an die großartige Shopware-Community, die immer hilfsbereit und unterstützend war. Es ist komplett kostenlos und Open Source - nutzen Sie es, modifizieren Sie es und teilen Sie es!
 
@@ -238,3 +238,11 @@ Wenn Ihnen dieses Plugin hilft, erwägen Sie:
 **Version:** 1.0.0
 **Autor:** Wendelken Dienstleistungen
 **Website:** https://wendelken.net
+
+
+Hat dir das Plugin Zeit gespart oder graue Haare verhindert?  
+Dann sag einfach „Danke“ mit einem Kaffee ☕ 😄  
+
+<a href="https://www.buymeacoffee.com/mwendelken">
+  <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=mwendelken&button_colour=5F7FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" />
+</a>
