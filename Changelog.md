@@ -5,6 +5,44 @@ Alle nennenswerten Änderungen an diesem Projekt werden in dieser Datei dokument
 Das Format basiert auf [Keep a Changelog](https://keepachangelog.com/de/1.0.0/),
 und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
 
+## [1.1.0] - 2025-10-30
+
+### Geändert
+
+#### Video Block - Media Manager Integration
+
+- **Video-Auswahl über Shopware Medienverwaltung** statt externer URL
+  - Integration des `sw-media-field` für native Medienauswahl
+  - Upload-Funktionalität direkt im CMS-Designer
+  - Automatische Erstellung eines "Video"-Ordners bei Plugin-Installation
+  - Media-Entity-Verarbeitung im `VideoElementResolver`
+
+#### Backend-Änderungen
+
+- `VideoBlockStruct`: Erweitert um `MediaEntity`, `mediaId` und `videoUrl` Properties
+- `VideoElementResolver`:
+  - `collect()` Methode implementiert für Media-Entity-Laden
+  - `enrich()` Methode angepasst für Media-Verarbeitung
+  - Criteria Collection für optimiertes Media-Loading
+- `SpecialBlocks.php`: `createMediaFolder()` Methode für automatische Ordner-Erstellung bei Installation
+
+#### Admin-Komponenten
+
+- Config-Komponente: `sw-media-field` ersetzt Text-Input
+- Config index.js: `getDefaultFolderId()` für Video-Ordner-Referenz
+- Element index.js: `defaultConfig` angepasst mit Media-Entity-Konfiguration
+- Component: Media-Repository-Integration mit Watcher für dynamisches Laden
+
+#### Frontend
+
+- Storefront Template: Verwendet `element.data.media.url` statt direkter URL
+
+### Technische Details
+
+- Neue Abhängigkeit: `Shopware\Core\Content\Media\MediaEntity`
+- Service-Injection: `repositoryFactory` in Admin-Komponenten
+- Default Media Folder Entity: `special_blocks_video`
+
 ## [1.0.0] - 2025-10-18
 
 ### Hinzugefügt

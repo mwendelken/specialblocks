@@ -6,7 +6,10 @@ use Shopware\Core\Content\Cms\Aggregate\CmsSlot\CmsSlotEntity;
 use Shopware\Core\Content\Cms\DataResolver\CriteriaCollection;
 use Shopware\Core\Content\Cms\DataResolver\Element\AbstractCmsElementResolver;
 use Shopware\Core\Content\Cms\DataResolver\Element\ElementDataCollection;
+use Shopware\Core\Content\Cms\DataResolver\FieldConfig;
 use Shopware\Core\Content\Cms\DataResolver\ResolverContext\ResolverContext;
+use Shopware\Core\Content\Media\MediaDefinition;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use SpecialBlocks\Core\Content\Cms\DataResolver\Element\Struct\VideoBlockStruct;
 
 class VideoElementResolver extends AbstractCmsElementResolver
@@ -18,7 +21,19 @@ class VideoElementResolver extends AbstractCmsElementResolver
 
     public function collect(CmsSlotEntity $slot, ResolverContext $resolverContext): ?CriteriaCollection
     {
-        return null;
+        $config = $slot->getFieldConfig();
+        $mediaConfig = $config->get('media');
+
+        if (!$mediaConfig || $mediaConfig->isMapped() || $mediaConfig->getValue() === null) {
+            return null;
+        }
+
+        $criteria = new Criteria([$mediaConfig->getValue()]);
+
+        $criteriaCollection = new CriteriaCollection();
+        $criteriaCollection->add('media_' . $slot->getUniqueIdentifier(), MediaDefinition::class, $criteria);
+
+        return $criteriaCollection;
     }
 
     public function enrich(CmsSlotEntity $slot, ResolverContext $resolverContext, ElementDataCollection $result): void
@@ -26,9 +41,20 @@ class VideoElementResolver extends AbstractCmsElementResolver
         $config = $slot->getFieldConfig();
         $videoStruct = new VideoBlockStruct();
 
-        $videoSrcConfig = $config->get('videoSrc');
-        if ($videoSrcConfig) {
-            $videoStruct->setVideoSrc($videoSrcConfig->getValue() ?? '');
+        // Handle media
+        $mediaConfig = $config->get('media');
+        if ($mediaConfig && $mediaConfig->getValue()) {
+            $mediaId = $mediaConfig->getValue();
+            $videoStruct->setMediaId($mediaId);
+
+            $searchResult = $result->get('media_' . $slot->getUniqueIdentifier());
+            if ($searchResult) {
+                $media = $searchResult->get($mediaId);
+                if ($media) {
+                    $videoStruct->setMedia($media);
+                    $videoStruct->setVideoUrl($media->getUrl());
+                }
+            }
         }
 
         $autoplayConfig = $config->get('autoplay');

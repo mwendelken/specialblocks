@@ -2,10 +2,14 @@
 
 namespace SpecialBlocks\Core\Content\Cms\DataResolver\Element\Struct;
 
+use Shopware\Core\Content\Media\MediaEntity;
 use Shopware\Core\Framework\Struct\Struct;
+
 class VideoBlockStruct extends Struct
 {
-    protected string $videoSrc = '';
+    protected ?MediaEntity $media = null;
+    protected ?string $mediaId = null;
+    protected string $videoUrl = '';
     protected bool $autoplay = false;
     protected bool $controls = true;
     protected bool $muted = false;
@@ -13,14 +17,34 @@ class VideoBlockStruct extends Struct
     protected string $width = '100%';
     protected string $height = 'auto';
 
-    public function getVideoSrc(): string
+    public function getMedia(): ?MediaEntity
     {
-        return $this->videoSrc;
+        return $this->media;
     }
 
-    public function setVideoSrc(string $videoSrc): void
+    public function setMedia(?MediaEntity $media): void
     {
-        $this->videoSrc = $videoSrc;
+        $this->media = $media;
+    }
+
+    public function getMediaId(): ?string
+    {
+        return $this->mediaId;
+    }
+
+    public function setMediaId(?string $mediaId): void
+    {
+        $this->mediaId = $mediaId;
+    }
+
+    public function getVideoUrl(): string
+    {
+        return $this->videoUrl;
+    }
+
+    public function setVideoUrl(string $videoUrl): void
+    {
+        $this->videoUrl = $videoUrl;
     }
 
     public function isAutoplay(): bool

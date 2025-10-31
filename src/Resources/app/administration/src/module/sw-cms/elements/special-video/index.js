@@ -11,7 +11,14 @@ Application.getContainer('service').cmsService.registerCmsElement({
     configComponent: 'sw-cms-el-config-special-video',
     previewComponent: 'sw-cms-el-preview-special-video',
     defaultConfig: {
-        videoSrc: { value: '', source: 'static' },
+        media: {
+            source: 'static',
+            value: null,
+            required: true,
+            entity: {
+                name: 'media'
+            }
+        },
         autoplay: { value: false, source: 'static' },
         controls: { value: true, source: 'static' },
         muted: { value: false, source: 'static' },

@@ -103,7 +103,7 @@ bin/build-storefront.sh
 
 #### Video Block-Konfiguration
 
-- **Video-Datei**: MP4-Video-URL aus OneDrive, Google-Drive, Dropbox, etc. (Video-URL muss öffentlich abrufbar sein) einfügen und speichern.
+- **Video-Datei**: MP4-Video aus der Shopware Medienverwaltung auswählen oder hochladen (automatischer "Video"-Ordner bei Installation)
 - **Autoplay**: Automatische Wiedergabe aktivieren/deaktivieren
 - **Controls**: Video-Steuerelemente anzeigen/verbergen
 - **Muted**: Video stumm starten
@@ -235,7 +235,7 @@ Wenn Ihnen dieses Plugin hilft, erwägen Sie:
 
 **Mit Herz für die Shopware-Community erstellt**
 
-**Version:** 1.0.0
+**Version:** 1.1.0
 **Autor:** Wendelken Dienstleistungen
 **Website:** https://wendelken.net
 
