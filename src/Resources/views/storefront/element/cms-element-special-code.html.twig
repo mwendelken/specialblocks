@@ -1,0 +1,21 @@
+{% block element_special_html_twig %}
+	<div class="cms-element-special-html-twig">
+        {% if element.config.htmlCode.value is defined and element.config.htmlCode.value %}
+            {% set htmlContent %}
+                {% if element.config.cssCode.value %}
+                    <style type="text/css">{{ element.config.cssCode.value|raw }}</style>
+                {% endif %}
+                {{ element.config.htmlCode.value|raw }}
+                {% if element.config.jsCode.value %}
+                    <script type="text/javascript">{{ element.config.jsCode.value|raw }}</script>
+                {% endif %}
+            {% endset %}
+
+            {% if element.config.enableTwig.value %}
+                {{ special_blocks_render_string(htmlContent) }}
+            {% else %}
+                {{ htmlContent|raw }}
+            {% endif %}
+        {% endif %}
+    </div>
+{% endblock %}

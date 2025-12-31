@@ -1,5 +1,7 @@
 # Special Blocks für Shopware 6.7+
 
+**Aktuelle Version: 1.4.0**
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Shopware Version](https://img.shields.io/badge/Shopware-6.7%2B-blue.svg)](https://www.shopware.com/)
 
@@ -34,6 +36,16 @@ Dieses Plugin ist mein Weg **Danke** zu sagen an die großartige Shopware-Commun
 - Unterstützung für 12h und 24h Zeitformate
 - Anpassbare Status-Farben über das Admin-Interface
 - Perfekt für Geschäfte, Restaurants oder Dienstleistungsunternehmen
+
+### HTML/Twig Code Block
+
+- **Benutzerdefinierter HTML, CSS und JavaScript Code** direkt in den Erlebniswelten
+- Optional **Twig-Kompilierung** für dynamische Inhalte
+- Code-Editor mit Syntax-Highlighting im Admin
+- Getrennte Eingabe für HTML, CSS und JavaScript
+- Perfekt für individuelle Anpassungen, Tracking-Codes oder spezielle Widgets
+- Nutzt Twig's Template-Engine für Zugriff auf Shopware-Variablen und -Funktionen
+- Twig-String-Compiler mit Logging und Fallback bei Template-Fehlern
 
 ## Theme-Integration
 
@@ -90,11 +102,12 @@ bin/build-storefront.sh
 
 1. Gehen Sie zu **Inhalte > Erlebniswelten** in Ihrem Shopware-Admin
 2. Erstellen Sie eine neue Erlebniswelt oder bearbeiten Sie eine bestehende
-3. Finden Sie die drei neuen Elemente in der Elementübersicht
-4. Verfügbare Blöcke:   
+3. Finden Sie die vier neuen Elemente in der Elementübersicht
+4. Verfügbare Blöcke:
    - **Video Block** - MP4-Video-Integration
    - **Tabellen Block** - Dynamische Tabellen
    - **Öffnungszeiten Block** - Wochenplan mit Status-Anzeige
+   - **HTML/Twig Code Block** - Benutzerdefinierter HTML, CSS und JavaScript Code
 5. Tauschen Sie das Element über die Schaltfläche "Element austauschen"
 6. Konfigurieren Sie den Block über das Zahnrad-Symbol
 7. Speichern und publizieren Sie die Erlebniswelt
@@ -126,6 +139,15 @@ bin/build-storefront.sh
 - **Zeitformat**: 12h oder 24h Format auswählen
 - **Status-Farben**: Farben in den Plugin-Einstellungen anpassen
 
+#### HTML/Twig Code-Konfiguration
+
+- **HTML Code**: Haupt-HTML-Code im integrierten Code-Editor
+- **CSS Code**: Optionales CSS (wird automatisch in `<style>`-Tags eingebettet)
+- **JavaScript Code**: Optionales JavaScript (wird automatisch in `<script>`-Tags eingebettet)
+- **Twig aktivieren**: Toggle zum Ein-/Ausschalten der Twig-Template-Kompilierung
+- Code-Editor mit Syntax-Highlighting für alle drei Sprachen
+- Tab-basierte Organisation für übersichtliche Code-Verwaltung
+
 ## Systemanforderungen
 
 - **Shopware 6.7+** (Erforderlich)
@@ -154,6 +176,24 @@ Einen Bug gefunden oder einen Feature-Wunsch? Bitte erstellen Sie ein Issue auf 
 - Schritte zur Reproduktion
 
 ## Changelog
+
+### Version 1.3.0
+
+- Neuer Twig-String-Compiler mit Logging und Fallback für das HTML/Twig-Element
+- Twig-Hilfsfunktion `special_blocks_render_string` für kontextbewusstes Rendering
+- HTML/Twig-Block nutzt die neue Rendering-Pipeline für dynamische Inhalte
+
+### Version 1.2.0
+
+- **NEU**: HTML/Twig Code Block für benutzerdefinierten Code
+- Code-Editor mit Syntax-Highlighting für HTML, CSS und JavaScript
+- Optional aktivierbare Twig-Template-Kompilierung
+- Twig StringLoader-Integration für dynamische Inhalte
+- Tab-basierte Code-Verwaltung im Admin
+
+### Version 1.1.0
+
+- Verbesserungen und Bugfixes
 
 ### Version 1.0.0
 
@@ -235,7 +275,7 @@ Wenn Ihnen dieses Plugin hilft, erwägen Sie:
 
 **Mit Herz für die Shopware-Community erstellt**
 
-**Version:** 1.1.0
+**Version:** 1.4.0
 **Autor:** Wendelken Dienstleistungen
 **Website:** https://wendelken.net
 

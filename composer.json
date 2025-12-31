@@ -1,9 +1,9 @@
 {
 	"name": "wendelken/special-blocks",
-	"description": "Shopware 6.7+ Plugin mit speziellen Elementen: MP4-Video, Tabelle, Öffnungszeiten für Erlebniswelten.",
+	"description": "Shopware 6.7+ Plugin mit speziellen Elementen: MP4-Video, Tabelle, Öffnungszeiten, HTML/Twig für Erlebniswelten.",
 	"type": "shopware-platform-plugin",
-	"license": "MIT",
-	"version": "1.1.0",
+    "license": "MIT",
+    "version": "1.4.0",
 	"authors": [
 		{
 		"name": "Wendelken Dienstleistungen",
@@ -26,8 +26,8 @@
             "en-GB": "Special Blocks"
         },
         "description": {
-            "de-DE": "Erweitert die Erlebniswelten um spezielle Elemente: MP4-Video aus Medienverwaltung, Tabelle und Öffnungszeiten",
-            "en-GB": "Adds special elements to the worlds of experience: MP4 video from media manager, table and opening hours"
+            "de-DE": "Erweitert die Erlebniswelten um spezielle Elemente: MP4-Video, Tabelle, Öffnungszeiten und HTML/Twig Code",
+            "en-GB": "Adds special elements to the worlds of experience: MP4 video, table, opening hours and HTML/Twig code"
         },
         "manufacturerLink": {
             "de-DE": "https://wendelken.net",

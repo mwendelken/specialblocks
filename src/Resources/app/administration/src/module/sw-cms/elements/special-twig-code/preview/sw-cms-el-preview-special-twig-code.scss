@@ -1,0 +1,25 @@
+.sw-cms-el-preview-special-twig-code {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 15px;
+
+  &__icon {
+    margin-bottom: 8px;
+
+    .sw-icon {
+      width: 40px;
+      height: 40px;
+      color: #758ca3;
+    }
+  }
+
+  &__label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #52667a;
+    text-align: center;
+  }
+}

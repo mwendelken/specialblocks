@@ -3,6 +3,7 @@
 namespace SpecialBlocks\Twig;
 
 use SpecialBlocks\Service\ConfigService;
+use SpecialBlocks\Service\TwigStringCompiler;
 use Shopware\Core\System\SalesChannel\SalesChannelContext;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
@@ -10,17 +11,20 @@ use Twig\TwigFunction;
 class SpecialBlocksExtension extends AbstractExtension
 {
     private ConfigService $configService;
+    private TwigStringCompiler $twigStringCompiler;
 
-    public function __construct(ConfigService $configService)
+    public function __construct(ConfigService $configService, TwigStringCompiler $twigStringCompiler)
     {
         $this->configService = $configService;
+        $this->twigStringCompiler = $twigStringCompiler;
     }
 
     public function getFunctions(): array
     {
         return [
             new TwigFunction('special_blocks_colors', [$this, 'getSpecialBlocksColors'], ['needs_context' => true]),
-            new TwigFunction('special_blocks_css', [$this, 'getSpecialBlocksCss'], ['needs_context' => true, 'is_safe' => ['html']])
+            new TwigFunction('special_blocks_css', [$this, 'getSpecialBlocksCss'], ['needs_context' => true, 'is_safe' => ['html']]),
+            new TwigFunction('special_blocks_render_string', [$this, 'renderString'], ['needs_context' => true, 'is_safe' => ['html']]),
         ];
     }
 
@@ -66,5 +70,12 @@ class SpecialBlocksExtension extends AbstractExtension
             $colors['statusClosedBackgroundColor'],
             $colors['statusClosedDotColor']
         );
+    }
+
+    public function renderString(array $context, string $template, array $templateContext = []): string
+    {
+        $payload = array_merge($context, $templateContext);
+
+        return $this->twigStringCompiler->render($template, $payload);
     }
 }

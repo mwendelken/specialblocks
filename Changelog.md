@@ -1,168 +1,110 @@
 # Changelog
 
-Alle nennenswerten Änderungen an diesem Projekt werden in dieser Datei dokumentiert.
+Alle wichtigen Änderungen an diesem Projekt werden in dieser Datei dokumentiert.
 
-Das Format basiert auf [Keep a Changelog](https://keepachangelog.com/de/1.0.0/),
-und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
-
-## [1.1.0] - 2025-10-30
-
-### Geändert
-
-#### Video Block - Media Manager Integration
-
-- **Video-Auswahl über Shopware Medienverwaltung** statt externer URL
-  - Integration des `sw-media-field` für native Medienauswahl
-  - Upload-Funktionalität direkt im CMS-Designer
-  - Automatische Erstellung eines "Video"-Ordners bei Plugin-Installation
-  - Media-Entity-Verarbeitung im `VideoElementResolver`
-
-#### Backend-Änderungen
-
-- `VideoBlockStruct`: Erweitert um `MediaEntity`, `mediaId` und `videoUrl` Properties
-- `VideoElementResolver`:
-  - `collect()` Methode implementiert für Media-Entity-Laden
-  - `enrich()` Methode angepasst für Media-Verarbeitung
-  - Criteria Collection für optimiertes Media-Loading
-- `SpecialBlocks.php`: `createMediaFolder()` Methode für automatische Ordner-Erstellung bei Installation
-
-#### Admin-Komponenten
-
-- Config-Komponente: `sw-media-field` ersetzt Text-Input
-- Config index.js: `getDefaultFolderId()` für Video-Ordner-Referenz
-- Element index.js: `defaultConfig` angepasst mit Media-Entity-Konfiguration
-- Component: Media-Repository-Integration mit Watcher für dynamisches Laden
-
-#### Frontend
-
-- Storefront Template: Verwendet `element.data.media.url` statt direkter URL
-
-### Technische Details
-
-- Neue Abhängigkeit: `Shopware\Core\Content\Media\MediaEntity`
-- Service-Injection: `repositoryFactory` in Admin-Komponenten
-- Default Media Folder Entity: `special_blocks_video`
-
-## [1.0.0] - 2025-10-18
+## [1.4.0] - 2025-12-27
 
 ### Hinzugefügt
+- **Intelligente Produkt-Ladung** im HTML/Twig-Element via Element Resolver
+- Automatische Produkt-Ladung auf Kategorie-Seiten (`element.data.categoryProducts`)
+- Manuelle Produkt-Ladung via Kategorie-ID Konfiguration (`element.data.customCategoryProducts`)
+- Produkte gruppiert nach Kategorien verfügbar (`element.data.productsByCategory`)
+- Konfigurierbare Optionen im Admin:
+  - **Kategorie-ID** (optional) - Lädt Produkte einer spezifischen Kategorie
+  - **Produkt-Limit** (1-100, Standard: 24) - Maximale Anzahl geladener Produkte
+  - **Sortierung** - Name (A-Z, Z-A), Preis (auf-/absteigend), Neueste zuerst
+  - **Nur Angebote** - Filtert Produkte mit reduziertem Preis (listPrice > calculatedPrice)
+- CodeBlockStruct mit ProductCollection und CategoryEntity Support
+- Automatische Duplikat-Vermeidung bei Produkt-Gruppierung
 
-#### Video Block
+### Geändert
+- HTML/Twig-Element unterstützt nun Element Resolver (vorher absichtlich ohne Resolver)
+- Einstellungen-Tab erweitert mit Produkt-Lade-Optionen und Hilfe-Texten
 
-- MP4-Video-Integration mit vollständiger Kontrolle über Wiedergabeoptionen
-- Konfigurierbare Optionen: Autoplay, Loop, Mute, Controls
-- Responsive Design mit anpassbaren Dimensionen und Seitenverhältnissen
-- Unterstützung für Custom Width und Height
-- Vorschau im Admin-Panel
+### Technisch
+- CodeElementResolver mit intelligentem collect() und enrich() Prozess
+- Unterstützung für ResolverContext zur Erkennung der aktuellen Seite
+- Produkt-Filterung nach Rabatt (listPrice vs. calculatedPrice)
+- Kategorie-basierte Produkt-Gruppierung mit alphabetischer Sortierung
 
-#### Tabellen Block
+## [1.3.3] - 2025-12-27
 
-- Dynamische Tabellenerstellung mit konfigurierbaren Zeilen und Spalten
-- Drei Styling-Optionen: Standard, Primary, Dark
-- Theme-Integration zur Anpassung an existierende Farbschemata
-- Gestreifte und umrandete Layout-Optionen
-- Vollständig responsive auf allen Geräten
-- Option zum Ein-/Ausblenden der Kopfzeile
-- Perfekt für Preistabellen, Vergleiche oder Datendarstellung
+### Behoben
+- **KRITISCH**: Template-Name korrigiert von `cms-element-special-html-twig.html.twig` → `cms-element-special-code.html.twig` (muss Element-Typ `special-code` entsprechen)
+- HTML/Twig-Element rendert jetzt korrekt auf der Storefront (Fehler: `element.translated.config.htmlCode.value` → `element.config.htmlCode.value`)
+- Einstellungen-Tab im HTML/Twig-Element zeigt jetzt korrekt den Twig-Toggle-Schalter (`sw-switch` → `sw-switch-field` mit korrektem v-model)
+- Twig-Funktion `special_blocks_render_string` wird jetzt mit korrekten Parametern aufgerufen
+- Info-Box im Einstellungen-Tab erklärt die Twig-Funktionalität
 
-#### Öffnungszeiten Block
+## [1.3.2] - 2025-12-26
 
-- Wochenplan-Anzeige mit Vormittag/Nachmittag-Aufteilung
-- Echtzeit-Status-Indikator (Geöffnet/Geschlossen)
-- Flexible Anzeigemodi: Tabellen- oder Listenansicht
-- Unterstützung für 12h und 24h Zeitformate
-- Anpassbare Status-Farben über Admin-Interface
-- Logik für durchgehende Öffnungszeiten ohne Mittagspause
-- Konfigurierbare geschlossene Tage
-- Automatische Zeitberechnung basierend auf aktueller Uhrzeit
+### Behoben
+- Administration-Bundle wird wieder ausgeliefert (esbuild-Build erzeugt `Resources/public/administration/js/special-blocks.js`).
+- Alle CMS-Elemente (Video, Tabelle, Öffnungszeiten, HTML/Twig) erscheinen erneut im Admin.
 
-#### Architektur & Integration
+## [1.3.1] - 2025-12-26
 
-- Vollständige Shopware 6.7+ Kompatibilität
-- Moderne Architektur ohne deprecated Block Resolvers
-- Element Resolvers für alle drei Blocktypen
-- Data Structures für strukturierte Datenverarbeitung
-- Service-Container-Integration mit Dependency Injection
-- Theme Compiler Subscriber für Asset-Integration
-- Twig Extension für Custom Functions
-- Config Service für Plugin-Konfiguration
+### Behoben
+- Admin-Konfiguration des HTML/Twig-Blocks speichert Änderungen (inkl. Twig-Toggle) wieder zuverlässig.
+- Administration-Asset wird direkt geladen (administration.xml + fertiges JS), damit das Element sichtbar bleibt.
 
-#### Admin-Komponenten
+## [1.3.0] - 2025-12-26
 
-- Vue.js Komponenten für alle drei Blocktypen
-- Konfigurationsinterfaces im CMS-Designer
-- Vorschau-Komponenten für bessere Übersicht
-- Vollständige Integration in Shopware Admin UI
-- Snippet-Unterstützung für Deutsch und Englisch
+### Hinzugefügt
+- Twig-String-Compiler-Service mit Logging und Fallback für das HTML/Twig-Element
+- Neue Twig-Funktion `special_blocks_render_string` für kontextbewusstes Rendering dynamischer Inhalte
 
-#### Frontend
+### Geändert
+- HTML/Twig-Storefront-Template nutzt die neue Rendering-Pipeline anstelle von `template_from_string()`
 
-- Twig Templates für alle Blocktypen
-- CSS ohne externe Framework-Abhängigkeiten
-- Theme-kompatibles Styling
-- Mobile-First Responsive Design
-- Barrierefreie HTML-Struktur
+## [1.2.0] - 2025-12-25
 
-#### Dokumentation
-
-- Umfassendes README.md mit Feature-Übersicht
-- Detaillierte Installationsanleitung (INSTALLATION.md)
-- Technische Dokumentation für Entwickler (CLAUDE.md)
-- Funktionsweise-Beschreibung (FUNKTIONSWEISE.md)
-- Code-Kommentare und Inline-Dokumentation
-
-#### Konfiguration
-
-- System-Konfiguration für Opening Hours Status-Farben
-- Color Picker für "Geöffnet"-Status
-- Color Picker für "Geschlossen"-Status
-- Plugin-Icon und Metadaten
+### Hinzugefügt
+- **HTML/Twig Code Block**: Neues CMS-Element für benutzerdefinierten HTML, CSS und JavaScript Code
+- Code-Editor mit Syntax-Highlighting für HTML, CSS und JavaScript im Admin
+- Optional aktivierbare Twig-Template-Kompilierung für dynamische Inhalte
+- Twig StringLoader-Extension Integration (`template_from_string()`)
+- Tab-basierte Code-Verwaltung im Admin-Interface (HTML, CSS, JS, Einstellungen)
+- Getrennte Eingabefelder für HTML, CSS und JavaScript Code
+- Toggle-Schalter zum Aktivieren/Deaktivieren der Twig-Kompilierung
 
 ### Technische Details
+- Registrierung der `Twig\Extension\StringLoaderExtension` in services.xml
+- Admin-Komponenten: Preview, Component, Config mit Vue.js
+- Storefront Template mit bedingter Twig-Verarbeitung
+- Keine zusätzlichen Abhängigkeiten erforderlich
 
-#### Element Resolvers
+## [1.1.0] - 2024-XX-XX
 
-- `VideoElementResolver` - Verarbeitet Video-Konfiguration
-- `TableElementResolver` - Verarbeitet Tabellen-Konfiguration
-- `OpeningHoursElementResolver` - Verarbeitet Öffnungszeiten-Konfiguration
+### Geändert
+- Verbesserungen und Bugfixes
+- Performance-Optimierungen
 
-#### Data Structures
+## [1.0.0] - 2024-XX-XX
 
-- `VideoBlockStruct` - Video-Datenstruktur
-- `TableBlockStruct` - Tabellen-Datenstruktur
-- `OpeningHoursBlockStruct` - Öffnungszeiten-Datenstruktur mit Zeitlogik
-
-#### Services
-
-- `ConfigService` - Zentrale Konfigurationsverwaltung
-- `ThemeCompilerSubscriber` - Event-Handling für Theme-Kompilierung
-- `SpecialBlocksController` - Storefront-Controller
-- `SpecialBlocksExtension` - Twig-Extension
-
-#### Coding Standards
-
-- PSR-1, PSR-4, PSR-12 konform
-- PHP 8.1+ mit strict types
-- Vue.js 3 Komponenten
-- BEM CSS-Namenskonvention
-- ESLint-konforme JavaScript-Syntax
-
-### Sicherheit
-
-- Keine hardcodierten Credentials
-- Sichere Twig-Templates mit Auto-Escaping
-- Validierung aller Konfigurationswerte
-- Keine SQL-Injections durch Doctrine ORM
+### Hinzugefügt
+- Erstveröffentlichung des Plugins
+- **Video Block**: MP4-Video-Integration mit vollständigen Steuerungsoptionen
+  - Autoplay, Loop, Mute, Controls Konfiguration
+  - Individuelle Dimensionen und Seitenverhältnisse
+  - Automatische Medienverwaltungs-Ordner-Erstellung
+- **Tabellen Block**: Dynamische Tabellenerstellung
+  - Konfigurierbare Zeilen und Spalten
+  - Mehrere Styling-Optionen (Standard, Primary, Dark)
+  - Gestreifte und umrandete Layouts
+  - Vollständig responsive
+- **Öffnungszeiten Block**: Wochenplan mit Status-Anzeige
+  - Vormittag/Nachmittag-Aufteilung
+  - Echtzeit-Status-Indikator (Geöffnet/Geschlossen)
+  - Flexible Anzeigemodi (Tabellen- oder Listenansicht)
+  - 12h und 24h Zeitformate
+  - Anpassbare Status-Farben
+- Vollständige Shopware 6.7+ Kompatibilität
+- Theme-agnostische Integration ohne CSS-Framework-Abhängigkeiten
+- Element Resolvers (keine veralteten Block Resolvers)
+- Mehrsprachige Unterstützung (Deutsch, Englisch)
 
 ---
 
-## Support
-
-Bei Fragen oder Problemen:
-
-- **GitHub Issues:** [GitHub · Issues](https://github.com/mwendelken/specialblocks/issues)
-- **Website:** https://wendelken.net
-
-## Lizenz
-
-MIT License - Siehe [LICENSE](LICENSE) für Details.
+Das Format basiert auf [Keep a Changelog](https://keepachangelog.com/de/1.0.0/),
+und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).

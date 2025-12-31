@@ -1,0 +1,25 @@
+{
+  "base": "/bundles/specialblocks/administration/",
+  "entryPoints": {
+    "special-blocks": {
+      "css": [
+        "/bundles/specialblocks/administration/assets/special-blocks-BGB46aMj.css"
+      ],
+      "dynamic": [],
+      "js": [
+        "/bundles/specialblocks/administration/assets/special-blocks-bmo5qIKj.js"
+      ],
+      "legacy": false,
+      "preload": []
+    }
+  },
+  "legacy": false,
+  "metadatas": {},
+  "version": [
+    "7.1.0",
+    7,
+    1,
+    0
+  ],
+  "viteServer": null
+}

@@ -1,0 +1,22 @@
+.sw-cms-el-preview-special-code {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    svg {
+        opacity: 0.8;
+        max-width: 100%;
+        max-height: 80px;
+    }
+
+    &__label {
+        font-size: 12px;
+        font-weight: 500;
+        color: #52667a;
+        text-align: center;
+    }
+}

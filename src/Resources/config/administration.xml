@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<administration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/trunk/src/Core/Framework/Plugin/Schema/administration-1.0.xsd">
+    <javascript>
+        <path>public/administration/js/special-blocks.js</path>
+    </javascript>
+</administration>

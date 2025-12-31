@@ -1,6 +1,11 @@
+// SpecialBlocks admin entrypoint
 import './module/sw-cms/elements/special-video';
 import './module/sw-cms/elements/special-table';
 import './module/sw-cms/elements/special-opening-hours';
+import './module/sw-cms/elements/special-code';
+
+// build sanity check token: SPECIALBLOCKS_MAIN_JS_USED
+console.debug('SpecialBlocks admin main.js loaded');
 
 // Register Translations
 const { Locale } = Shopware;
@@ -17,6 +22,9 @@ Locale.extend('de-DE', {
                 },
                 'openingHours': {
                     'label': 'Öffnungszeiten'
+                },
+                'code': {
+                    'label': 'HTML/Twig Code'
                 }
             }
         }
@@ -120,6 +128,10 @@ Locale.extend('de-DE', {
                 'open': 'Geöffnet',
                 'closed': 'Geschlossen'
             }
+        },
+        'htmlTwig': {
+            'label': 'HTML/Twig Code',
+            'description': 'Benutzerdefinierter HTML, CSS und JavaScript Code mit optionaler Twig-Unterstützung'
         }
     }
 });
@@ -136,6 +148,9 @@ Locale.extend('en-GB', {
                 },
                 'openingHours': {
                     'label': 'Opening Hours'
+                },
+                'code': {
+                    'label': 'HTML/Twig Code'
                 }
             }
         }
@@ -239,6 +254,10 @@ Locale.extend('en-GB', {
                 'open': 'Open',
                 'closed': 'Closed'
             }
+        },
+        'htmlTwig': {
+            'label': 'HTML/Twig Code',
+            'description': 'Custom HTML, CSS and JavaScript code with optional Twig support'
         }
     }
 });

@@ -1,0 +1,62 @@
+{% block sw_cms_element_config_special_code %}
+    <div class="sw-cms-el-config-special-code">
+
+        <sw-tabs defaultItem="html-tab">
+            <template #default="{ active }">
+                <sw-tabs-item name="html-tab" :active-tab="active">HTML Code</sw-tabs-item>
+                <sw-tabs-item name="css-tab" :active-tab="active">CSS Code</sw-tabs-item>
+                <sw-tabs-item name="js-tab" :active-tab="active">JavaScript Code</sw-tabs-item>
+                <sw-tabs-item name="settings-tab" :active-tab="active">Einstellungen</sw-tabs-item>
+            </template>
+
+            <template #content="{ active }">
+                <div v-if="active === 'html-tab'">
+                    <sw-code-editor
+                        label="HTML/Twig Code"
+                        v-model:value="element.config.htmlCode.value"
+                        @update:value="onElementUpdate"
+						@change="onElementUpdate"
+                        mode="html"
+                        :softWraps="true"
+                    />
+                </div>
+
+                <div v-if="active === 'css-tab'">
+                    <sw-code-editor
+                        label="CSS Code (optional)"
+                        v-model:value="element.config.cssCode.value"
+                        @update:value="onElementUpdate"
+						@change="onElementUpdate"
+                        mode="css"
+                        :softWraps="false"
+                    />
+                </div>
+
+                <div v-if="active === 'js-tab'">
+                    <sw-code-editor
+                        label="JavaScript Code (optional)"
+                        v-model:value="element.config.jsCode.value"
+                        @update:value="onElementUpdate"
+						@change="onElementUpdate"
+                        mode="javascript"
+                        :softWraps="false"
+                    />
+                </div>
+
+                <div v-if="active === 'settings-tab'">
+                    <sw-switch-field
+						v-model:value="element.config.enableTwig.value"
+						@update:value="onElementUpdate"
+						@change="onElementUpdate"
+						label="Twig aktivieren"
+						bordered
+					/>
+                    <sw-alert variant="info">
+                        Wenn aktiviert, wird der HTML-Code als Twig-Template gerendert und hat Zugriff auf alle Shopware-Variablen (page, context, etc.)
+                    </sw-alert>
+                </div>
+            </template>
+        </sw-tabs>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% block sw_cms_element_special_twig_code_config %}
+  <div class="sw-cms-el-config-special-twig-code">
+
+    {% block sw_cms_element_special_twig_code_config_html %}
+      <sw-code-editor
+        :label="$tc('specialBlocks.twigCode.config.contentHTML.label')"
+        :helpText="$tc('specialBlocks.twigCode.config.contentHTML.helpText')"
+        :softWraps="false"
+        mode="html"
+        v-model:value="element.config.contentHTML.value"
+        @input="onElementUpdate"
+      />
+    {% endblock %}
+
+    {% block sw_cms_element_special_twig_code_config_use_twig %}
+      <sw-switch-field
+        :label="$tc('specialBlocks.twigCode.config.useTwig.label')"
+        :helpText="$tc('specialBlocks.twigCode.config.useTwig.helpText')"
+        v-model="element.config.useTwig.value"
+        @change="onElementUpdate"
+      />
+    {% endblock %}
+
+    {% block sw_cms_element_special_twig_code_config_css %}
+      <sw-code-editor
+        :label="$tc('specialBlocks.twigCode.config.contentCSS.label')"
+        :helpText="$tc('specialBlocks.twigCode.config.contentCSS.helpText')"
+        :softWraps="false"
+        mode="css"
+        v-model:value="element.config.contentCSS.value"
+        @input="onElementUpdate"
+      />
+    {% endblock %}
+
+    {% block sw_cms_element_special_twig_code_config_js %}
+      <sw-code-editor
+        :label="$tc('specialBlocks.twigCode.config.contentJS.label')"
+        :helpText="$tc('specialBlocks.twigCode.config.contentJS.helpText')"
+        :softWraps="false"
+        mode="javascript"
+        v-model:value="element.config.contentJS.value"
+        @input="onElementUpdate"
+      />
+    {% endblock %}
+
+  </div>
+{% endblock %}

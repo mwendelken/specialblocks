@@ -24,6 +24,12 @@
             <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
         </service>
 
+        <!-- Twig String Compiler -->
+        <service id="SpecialBlocks\Service\TwigStringCompiler">
+            <argument type="service" id="twig"/>
+            <argument type="service" id="logger"/>
+        </service>
+
         <!-- Theme Compiler Subscriber -->
         <service id="SpecialBlocks\Subscriber\ThemeCompilerSubscriber">
             <argument type="service" id="SpecialBlocks\Service\ConfigService"/>
@@ -41,6 +47,12 @@
         <!-- Twig Extension -->
         <service id="SpecialBlocks\Twig\SpecialBlocksExtension">
             <argument type="service" id="SpecialBlocks\Service\ConfigService"/>
+            <argument type="service" id="SpecialBlocks\Service\TwigStringCompiler"/>
+            <tag name="twig.extension"/>
+        </service>
+
+        <!-- Twig String Loader for HTML/Twig Element -->
+        <service id="Twig\Extension\StringLoaderExtension">
             <tag name="twig.extension"/>
         </service>
     </services>

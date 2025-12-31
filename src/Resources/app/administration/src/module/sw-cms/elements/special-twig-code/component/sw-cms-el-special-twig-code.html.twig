@@ -1,0 +1,17 @@
+{% block sw_cms_element_special_twig_code %}
+  <div class="sw-cms-el-special-twig-code">
+    {% block sw_cms_element_special_twig_code_content %}
+      <div class="sw-cms-el-special-twig-code__content">
+        <div class="sw-cms-el-special-twig-code__icon">
+          <sw-icon name="regular-code"></sw-icon>
+        </div>
+        <div class="sw-cms-el-special-twig-code__label">
+          {{ $tc('specialBlocks.twigCode.label') }}
+        </div>
+        <div class="sw-cms-el-special-twig-code__preview" v-if="htmlContent">
+          <small>{{ $tc('specialBlocks.twigCode.description') }}</small>
+        </div>
+      </div>
+    {% endblock %}
+  </div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{
+  "main.js": {
+    "file": "assets/special-blocks-bmo5qIKj.js",
+    "name": "special-blocks",
+    "src": "main.js",
+    "isEntry": true,
+    "css": [
+      "assets/special-blocks-BGB46aMj.css"
+    ]
+  }
+}
